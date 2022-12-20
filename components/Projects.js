@@ -41,7 +41,7 @@ const Projects = ({ projects }) => {
       <div ref={ref}>
         <Swiper slidesPerView={1} loop={true}>
           {projects.map((project, i) => (
-            <SwiperSlide>
+            <SwiperSlide key={i}>
               <div className="swiperSingle">
                 {project.image.dimensions.width <= project.image.dimensions.height ? (
                   <Image

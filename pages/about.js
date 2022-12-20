@@ -18,7 +18,7 @@ const About = ({ about }) => {
       <Swiper slidesPerView={1}>
         {about.map((entry, i) =>
           entry.image ? (
-            <SwiperSlide>
+            <SwiperSlide key={i}>
               <div className="swiperImageAbout">
                 <div className="swiperImageInner">
                   <Image
@@ -29,11 +29,11 @@ const About = ({ about }) => {
                     width="100"
                     loading="eager"
                   />
-                </div>{" "}
+                </div>
               </div>
             </SwiperSlide>
           ) : (
-            <SwiperSlide>
+            <SwiperSlide  key={i}>
               <div className="swiperSingle">
                 <PortableText value={entry.text} />
               </div>
