@@ -9,9 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@portabletext/react": "^2.0.0",
+    "@sanity/client": "^3.4.1",
+    "framer-motion": "^7.10.2",
     "next": "13.0.7",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-intersection-observer": "^9.4.1",
+    "swiper": "^8.4.5"
   },
   "devDependencies": {
     "eslint": "8.29.0",

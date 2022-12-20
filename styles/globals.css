@@ -2,25 +2,106 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Arial, Arial, Helvetica, sans-serif;
+  font-size: 22px;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  cursor: pointer;
+}
+
+h1, h2, p {
+  margin: 0;
+  font-weight: 100;
 }
 
 * {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+::selection {
+  background: black;
+  color: white;
+}
+
+@font-face {
+  font-family: "Office";
+  font-style: normal;
+  src: url(../public/fonts/OfficeTimesSharp-Regular.otf) format("opentype");
+}
+
+p {
+  font-family: "Office";
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: -1px;
+}
+
+/* LANDING */
+
+.landingWrapper {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PROJECTS */
+
+.projectsWrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.swiperSingle {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ABOUT */
+
+.swiperWrapper {
+  width: 100vw;
+  height: 100vh;
+}
+
+.swiperSingle p {
+  padding: 0 10vw ;
+}
+
+.swiperImageAbout {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* INFO */
+
+.infoWrapper {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.swiperSingle a {
+  font-family: "Office";
+  font-size: 40px;
+  line-height: 50px;
+  letter-spacing: -1px;
+  text-decoration: underline;
+  text-underline-offset: 14px;
+  text-decoration-thickness: 3px;
 }

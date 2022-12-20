@@ -1,0 +1,48 @@
+.navWrapper {
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    z-index: 100
+}
+
+.navLink::before {
+  content: "";
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  transform: scaleX(0) translateY(26px);
+  transition: transform 0.3s ease;
+}
+
+.navLink:hover::before {
+  transform: scaleX(1) translateY(26px);
+}
+
+.navOuter {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navOuter span:first-child {
+    font-family: "office";
+    transform: translateY(-2px)
+}
+
+.navOuter, .navInner {
+    position: absolute;
+    transition: all 0.5s ease
+}
+
+.navInner {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
