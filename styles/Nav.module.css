@@ -1,11 +1,15 @@
 .navWrapper {
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    padding-top: 10px;
-    z-index: 100
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  padding-top: 10px;
+  z-index: 100;
+}
+
+.navMobileWrapper {
+  display: none;
 }
 
 .navLink::before {
@@ -26,23 +30,138 @@
 }
 
 .navOuter {
-    display: flex;
-    justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
 
-.navOuter span:first-child {
-    font-family: "office";
-    transform: translateY(-2px)
-}
-
-.navOuter, .navInner {
-    position: absolute;
-    transition: all 0.5s ease
+.navOuter,
+.navInner {
+  position: absolute;
+  transition: all 0.5s ease;
 }
 
 .navInner {
-    text-align: center;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.navBottom {
+  position: fixed;
+  bottom: 20px;
+  display: flex;
+  width: 100%;
+  z-index: 100;
+}
+
+.navBottomInner {
+  width: 50%;
+  text-align: center;
+}
+
+.navInnerMobile {
+  display: none
+}
+
+.navConcept {
+  font-family: "office";
+  line-height: 8px;
+}
+
+.active {
+  border-bottom: 2px solid black;
+  cursor: pointer;
+}
+
+.passive {
+  cursor: pointer;
+}
+
+.copyright {
+  font-family: "office";
+  cursor: default;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0}
+  100% {opacity: 1}
+}
+
+@media screen and (max-width: 600px) {
+  .navWrapper {
+    display: none;
+  }
+  .navMobileWrapper {
+    position: fixed;
+    bottom: 10px;
+    width: 100vw;
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    padding-top: 10px;
+    z-index: 100;
+    font-size: 25px;
+    line-height: 30px;
+    letter-spacing: 0;
+  }
+
+  .navMobileOuter {
+    width: 100%;
+    display: flex;
+    padding: 0 12px;
+    justify-content: space-between;
+    transition: all 0.5s ease;
+    z-index: 5000;
+  }
+
+  .navBottom {
+    bottom: unset;
+    top: 10px;
+    font-size: 15px;
+    padding: 0 12px;
+    justify-content: space-between;
+
+  }
+  .navBottomInner {
+    width: unset;
+  }
+  .navInnerMobile {
+    display: inherit;
+    text-align: center;
+    position: fixed;
+    top: unset;
+    bottom: 0;
+    opacity: 0;
+    padding-top: 5px;
+    padding-bottom: 40px;
+    width: 100%;
+    font-size: 40px;
+    line-height: 38px;
+    /* background: white; */
+    animation: fadeIn 1s ease;
+    animation-delay: 1s;
+    animation-fill-mode: forwards;
+    z-index: 50;
+
+  }
+
+  .navMobileConcept {
+    font-family: "office";
+    line-height: 26px;
+  }
+  .navLink::before {
+    content: "";
+    position: relative;
+    display: block;
+    width: 0;
+    height: 0;
+    bottom: 0;
+    left: 0;
+    background-color: #000;
+    transform: scaleX(0) translateY(37px);
+    transition: transform 0.3s ease;
+  }
+  .navLink:hover::before {
+    transform: scaleX(1) translateY(37px);
+  }
 }
