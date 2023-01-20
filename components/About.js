@@ -7,6 +7,7 @@ import "swiper/css/pagination";
 import { useInView } from "react-intersection-observer";
 
 import Div100vh from "react-div-100vh";
+import { use100vh } from "react-div-100vh";
 
 import { Pagination } from "swiper";
 
@@ -17,6 +18,8 @@ import AboutSlider from "./AboutSlider";
 const About = ({ about, english, setSliderTitle, setSwiperIndex }) => {
   const swiperSlide = useSwiperSlide();
   const swiperRef = useRef(null);
+
+  const height = use100vh();
 
   const { ref, inView, entry } = useInView();
 
@@ -49,9 +52,9 @@ const About = ({ about, english, setSliderTitle, setSwiperIndex }) => {
           pagination={pagination}
           modules={[Pagination]}
           speed={1000}
+          style={{height: `${height}`, background: "blue"}}
         >
-          {" "}
-          <Div100vh>
+
             {about.map((entry, i) => (
               <>
                 {entry.image ? (
@@ -88,7 +91,7 @@ const About = ({ about, english, setSliderTitle, setSwiperIndex }) => {
                 )}
               </>
             ))}{" "}
-          </Div100vh>
+
         </Swiper>
       </div>
     </Div100vh>
