@@ -6,6 +6,7 @@ import { PortableText } from "@portabletext/react";
 import { useInView } from "react-intersection-observer";
 
 import Div100vh from "react-div-100vh";
+import { use100vh } from "react-div-100vh";
 
 import { Pagination } from "swiper";
 
@@ -24,6 +25,8 @@ const Workshop = ({
   const swiperSlide = useSwiperSlide();
   const swiperRef = useRef(null);
   const { ref, inView, entry } = useInView();
+
+  const height = use100vh();
 
   const pagination = {
     clickable: true,
@@ -67,6 +70,7 @@ const Workshop = ({
             pagination={pagination}
             modules={[Pagination]}
             speed={1000}
+            style={{height: `${height}px`}}
           >
             {english
               ? workshop[0].textMobileEn.map((entry, i) => (

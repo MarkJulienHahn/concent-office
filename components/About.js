@@ -43,8 +43,6 @@ const About = ({ about, english, setSliderTitle, setSwiperIndex }) => {
     swiperSlide.isActive ? setSwiperIndex(2) : "";
   });
 
-  console.log(height)
-
   return (
     <Div100vh>
       <div ref={ref}>
@@ -54,7 +52,7 @@ const About = ({ about, english, setSliderTitle, setSwiperIndex }) => {
           pagination={pagination}
           modules={[Pagination]}
           speed={1000}
-          style={{height: `${height}px`, background: "blue"}}
+          style={{height: `${height}px`}}
         >
 
             {about.map((entry, i) => (

@@ -3,11 +3,14 @@ import { useSwiperSlide } from "swiper/react";
 import { PortableText } from "@portabletext/react";
 
 import Div100vh from "react-div-100vh";
+import { use100vh } from "react-div-100vh";
 
 import { useInView } from "react-intersection-observer";
 
 const Info = ({ info, setSliderTitle, setSwiperIndex }) => {
   const swiperSlide = useSwiperSlide();
+  const height = use100vh();
+
   const { ref, inView, entry } = useInView();
   useEffect(() => {
     swiperSlide.isActive
@@ -17,7 +20,7 @@ const Info = ({ info, setSliderTitle, setSwiperIndex }) => {
 
   return (
     <Div100vh>
-      <div style={{ width: "100vw", height: "100%" }} ref={ref}>
+      <div style={{ width: "100vw", height: `${height}px` }} ref={ref}>
         <div className="infoWrapper">
           <PortableText value={info[0].text} />
         </div>
