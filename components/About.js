@@ -6,6 +6,8 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { useInView } from "react-intersection-observer";
 
+import Div100vh from "react-div-100vh";
+
 import { Pagination } from "swiper";
 
 import AboutImage from "./AboutImage";
@@ -30,57 +32,63 @@ const About = ({ about, english, setSliderTitle, setSwiperIndex }) => {
 
   useEffect(() => {
     swiperSlide.isActive
-      ? (setSliderTitle(<>©{new Date().getFullYear()}</>))
+      ? setSliderTitle(<>©{new Date().getFullYear()}</>)
       : "";
   }, [inView]);
 
   useEffect(() => {
-    swiperSlide.isActive
-      ? (setSwiperIndex(2))
-      : "";
+    swiperSlide.isActive ? setSwiperIndex(2) : "";
   });
 
   return (
-    <div ref={ref}>
-      <Swiper
-        ref={swiperRef}
-        slidesPerView={1}
-        pagination={pagination}
-        modules={[Pagination]}
-        speed={1000}
-      >
-        {about.map((entry, i) => (
-          <>
-            {entry.image ? (
-              <SwiperSlide key={i}>
-                <AboutImage entry={entry} />
-              </SwiperSlide>
-            ) : (
-              ""
-            )}
-            {entry.text ? (
-              <SwiperSlide key={i}>
-                <AboutText entry={entry} english={english} />
-              </SwiperSlide>
-            ) : (
-              ""
-            )}
-            {entry.customSlider ? (
-              <SwiperSlide key={i}>
-                <AboutSlider
-                  entry={entry.customSlider}
-                  nextSlide={nextSlide}
-                  prevSlide={prevSlide}
-                  english={english}
-                />
-              </SwiperSlide>
-            ) : (
-              ""
-            )}
-          </>
-        ))}
-      </Swiper>
-    </div>
+    <Div100vh>
+      <div ref={ref}>
+        <Swiper
+          ref={swiperRef}
+          slidesPerView={1}
+          pagination={pagination}
+          modules={[Pagination]}
+          speed={1000}
+        >
+          {about.map((entry, i) => (
+            <>
+              {entry.image ? (
+                <Div100vh>
+                  <SwiperSlide key={i}>
+                    <AboutImage entry={entry} />
+                  </SwiperSlide>
+                </Div100vh>
+              ) : (
+                ""
+              )}
+              {entry.text ? (
+                <Div100vh>
+                  <SwiperSlide key={i}>
+                    <AboutText entry={entry} english={english} />
+                  </SwiperSlide>
+                </Div100vh>
+              ) : (
+                ""
+              )}
+              {entry.customSlider ? (
+                <Div100vh>
+                  <SwiperSlide key={i}>
+                    <AboutSlider
+                      entry={entry.customSlider}
+                      nextSlide={nextSlide}
+                      prevSlide={prevSlide}
+                      english={english}
+                    />
+                  </SwiperSlide>
+                </Div100vh>
+              ) : (
+                ""
+              )}
+            </>
+          ))}
+        </Swiper>
+      </div>
+    </Div100vh>
   );
 };
 

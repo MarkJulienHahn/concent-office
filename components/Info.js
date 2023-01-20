@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useSwiperSlide } from "swiper/react";
 import { PortableText } from "@portabletext/react";
 
+import Div100vh from "react-div-100vh";
+
 import { useInView } from "react-intersection-observer";
 
 const Info = ({ info, setSliderTitle, setSwiperIndex }) => {
@@ -14,12 +16,14 @@ const Info = ({ info, setSliderTitle, setSwiperIndex }) => {
   }, [inView]);
 
   return (
+    <Div100vh>
       <div style={{ width: "100vw", height: "100%" }} ref={ref}>
         <div className="infoWrapper">
           <PortableText value={info[0].text} />
         </div>
         <div className="infoPagination"></div>
       </div>
+    </Div100vh>
   );
 };
 

@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { useSwiperSlide, useSwiper } from "swiper/react";
 
+import { use100vh } from "react-div-100vh";
+import Div100vh from "react-div-100vh";
+
 const Landing = ({ nextSlide, setSliderTitle, setSwiperIndex }) => {
-  const swiper = useSwiper();
   const swiperSlide = useSwiperSlide();
+  const height = use100vh();
 
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
@@ -29,9 +32,11 @@ const Landing = ({ nextSlide, setSliderTitle, setSwiperIndex }) => {
   // });
 
   return (
-    <div className="landingWrapper">
-      <p>shaping flexible and sustainable office environments.</p>
-    </div>
+    <Div100vh>
+      <div className="landingWrapper">
+        <p>shaping flexible and sustainable office environments.</p>
+      </div>
+    </Div100vh>
   );
 };
 
