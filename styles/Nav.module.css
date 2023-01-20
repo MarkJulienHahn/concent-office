@@ -120,6 +120,8 @@
     justify-content: space-between;
     transition: all 0.5s ease;
     z-index: 5000;
+    font-size: 23px;
+    line-height: 27px;
   }
 
   .navBottom {

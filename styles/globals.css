@@ -58,6 +58,7 @@ p {
   justify-content: center;
   text-align: center;
   background: white;
+  padding: 0 20px;
 }
 
 .landingWrapper p {
@@ -198,8 +199,8 @@ p {
 
 @media screen and (max-width: 600px) {
   p {
-    font-size: 25px;
-    line-height: 30px;
+    font-size: 23px;
+    line-height: 27px;
     word-spacing: -2px;
     letter-spacing: 0;
   }
@@ -220,7 +221,7 @@ p {
   }
 
   .swiperImageSlideIn {
-    transform: scale(85%);
+    transform: scale(90%);
   }
   .swiperSingleAbout {
     height: 80%;
@@ -269,12 +270,21 @@ p {
     transform: translateY(38px)
   }
   .infoPagination {
-    position: absolute;
+    position: fixed;
     bottom: 38px;
     width: calc(100vw - 10px);
     height: 2.2px;
     border-radius: 20px;
     background: black;
     margin-left: 5px;
+  }
+  .swiperImageAbout {
+    height: 90%;
+
+  }
+  
+  .swiperImageSlideIn {
+    height: 90%;
+
   }
 }
