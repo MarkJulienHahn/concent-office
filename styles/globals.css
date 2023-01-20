@@ -270,7 +270,7 @@ p {
   }
   .infoPagination {
     position: absolute;
-    bottom: 38px;
+    bottom: 40px;
     width: calc(100vw - 10px);
     height: 2.2px;
     border-radius: 20px;

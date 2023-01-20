@@ -36,13 +36,11 @@ const Workshop = ({
       : "";
   }, [inView]);
 
-  console.log(workshop, workshop[0].textMobileEn);
-
   return (
     <>
       <div
         className="workshopDesktop"
-        style={{ width: "100vw", height: "100vh" }}
+        style={{ width: "100vw", height: "100%" }}
         ref={ref}
       >
         <div className="swiperSingle">

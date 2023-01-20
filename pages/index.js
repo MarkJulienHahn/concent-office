@@ -12,6 +12,9 @@ import Projects from "../components/Projects";
 import Workshop from "../components/Workshop";
 import About from "../components/About";
 
+import { use100vh } from "react-div-100vh";
+import Div100vh from "react-div-100vh";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -35,12 +38,13 @@ export default function Home({
 
   const swiperRef = useRef(null);
 
+  const height = use100vh();
+
   const nextSlide = () => swiperRef.current.swiper.slideTo(1);
 
   // useEffect(() => {
   //   console.log(swiperIndex)
   // })
-
 
   return (
     <div>
@@ -178,7 +182,9 @@ export default function Home({
             info
           </span>
         </div>
-      ) : ""}
+      ) : (
+        ""
+      )}
 
       <AnimatePresence>
         <motion.div
@@ -189,73 +195,76 @@ export default function Home({
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          <div
-            style={{
-              width: "100vw",
-              height: "calc(100vh + 1px)",
-              overflow: "hidden",
-              background: "white",
-            }}
-          >
-            <Swiper
-              ref={swiperRef}
-              direction={"vertical"}
-              slidesPerView={1}
-              spaceBetween={0}
-              keyboard={{
-                enabled: true,
+          {" "}
+          <Div100vh>
+            <div
+              style={{
+                width: "100vw",
+                height: "100%",
+                overflow: "hidden",
+                background: "white",
               }}
-              modules={[Pagination]}
-              allowTouchMove={false}
-              speed={1000}
             >
-              <SwiperSlide>
-                <div onClick={() => swiperRef.current.swiper.slideTo(1)}>
-                  <Landing
+              <Swiper
+                ref={swiperRef}
+                direction={"vertical"}
+                slidesPerView={1}
+                spaceBetween={0}
+                keyboard={{
+                  enabled: true,
+                }}
+                modules={[Pagination]}
+                allowTouchMove={false}
+                speed={1000}
+              >
+                <SwiperSlide>
+                  <div onClick={() => swiperRef.current.swiper.slideTo(1)}>
+                    <Landing
+                      setSliderTitle={setSliderTitle}
+                      setSwiperIndex={setSwiperIndex}
+                      swiperIndex={swiperIndex}
+                      nextSlide={nextSlide}
+                    />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Projects
+                    projects={projects}
                     setSliderTitle={setSliderTitle}
                     setSwiperIndex={setSwiperIndex}
                     swiperIndex={swiperIndex}
-                    nextSlide={nextSlide}
+                    english={english}
                   />
-                </div>
-              </SwiperSlide>
-              <SwiperSlide>
-                <Projects
-                  projects={projects}
-                  setSliderTitle={setSliderTitle}
-                  setSwiperIndex={setSwiperIndex}
-                  swiperIndex={swiperIndex}
-                  english={english}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <About
-                  english={english}
-                  swiperIndex={swiperIndex}
-                  setSwiperIndex={setSwiperIndex}
-                  setSliderTitle={setSliderTitle}
-                  about={about}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Workshop
-                  english={english}
-                  swiperIndex={swiperIndex}
-                  setSwiperIndex={setSwiperIndex}
-                  setSliderTitle={setSliderTitle}
-                  workshop={workshop}
-                />
-              </SwiperSlide>
-              <SwiperSlide>
-                <Info
-                  swiperIndex={swiperIndex}
-                  setSwiperIndex={setSwiperIndex}
-                  setSliderTitle={setSliderTitle}
-                  info={info}
-                />
-              </SwiperSlide>
-            </Swiper>
-          </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <About
+                    english={english}
+                    swiperIndex={swiperIndex}
+                    setSwiperIndex={setSwiperIndex}
+                    setSliderTitle={setSliderTitle}
+                    about={about}
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Workshop
+                    english={english}
+                    swiperIndex={swiperIndex}
+                    setSwiperIndex={setSwiperIndex}
+                    setSliderTitle={setSliderTitle}
+                    workshop={workshop}
+                  />
+                </SwiperSlide>
+                <SwiperSlide>
+                  <Info
+                    swiperIndex={swiperIndex}
+                    setSwiperIndex={setSwiperIndex}
+                    setSliderTitle={setSliderTitle}
+                    info={info}
+                  />
+                </SwiperSlide>
+              </Swiper>
+            </div>{" "}
+          </Div100vh>
         </motion.div>
       </AnimatePresence>
     </div>

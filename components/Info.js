@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useSwiperSlide } from "swiper/react";
 import { PortableText } from "@portabletext/react";
+
 import { useInView } from "react-intersection-observer";
 
 const Info = ({ info, setSliderTitle, setSwiperIndex }) => {
@@ -13,12 +14,12 @@ const Info = ({ info, setSliderTitle, setSwiperIndex }) => {
   }, [inView]);
 
   return (
-    <div style={{ width: "100vw", height: "100vh" }} ref={ref}>
-      <div className="infoWrapper">
-        <PortableText value={info[0].text} />
+      <div style={{ width: "100vw", height: "100%" }} ref={ref}>
+        <div className="infoWrapper">
+          <PortableText value={info[0].text} />
+        </div>
+        <div className="infoPagination"></div>
       </div>
-      <div className="infoPagination"></div>
-    </div>
   );
 };
 
