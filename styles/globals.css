@@ -5,6 +5,8 @@ body {
   font-family: Arial, Arial, Helvetica, sans-serif;
   font-size: 22px;
   background: white;
+  -webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -42,6 +44,10 @@ p {
   letter-spacing: -1px;
 }
 
+.swiper-wrapper {
+  height: 100vh !important;
+}
+
 /* LANDING */
 
 .landingWrapper {
@@ -51,6 +57,11 @@ p {
   align-items: center;
   justify-content: center;
   text-align: center;
+  background: white;
+}
+
+.landingWrapper p {
+  cursor: pointer;
 }
 
 /* PROJECTS */
@@ -67,7 +78,8 @@ p {
   align-items: center;
 }
 
-.swiperSingle, .swiperSingleAbout {
+.swiperSingle,
+.swiperSingleAbout {
   position: relative;
   height: 100vh;
   width: 100vw;
@@ -103,7 +115,8 @@ p {
   height: 100vh;
 }
 
-.swiperSingle p, .swiperSingleAbout p {
+.swiperSingle p,
+.swiperSingleAbout p {
   padding: 0 10vw;
 }
 
@@ -121,6 +134,9 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.swiperImageSlideIn img {
   transform: scale(60%);
 }
 
@@ -142,7 +158,8 @@ p {
   text-align: center;
 }
 
-.swiperSingle a, .swiperSingleAbout a {
+.swiperSingle a,
+.swiperSingleAbout a {
   font-family: "Office";
   font-size: 40px;
   line-height: 50px;
@@ -166,13 +183,18 @@ p {
   opacity: 1 !important;
   transition: all 0.5s ease;
   height: 2px !important;
-
 }
 
 .swiper-pagination-bullet-active {
   padding: 0 50px !important;
-  background: black !important
+  background: black !important;
 }
+
+.workshopMobile {
+  display: none;
+}
+
+
 
 @media screen and (max-width: 600px) {
   p {
@@ -215,18 +237,44 @@ p {
     justify-content: space-between;
     z-index: 10000 !important;
   }
-  
+
   .swiper-pagination-bullet {
     width: 1000px !important;
     border-radius: 10px !important;
     opacity: 1 !important;
     transition: all 0.5s ease;
     height: 2px !important;
-  
   }
-  
+
   .swiper-pagination-bullet-active {
     padding: 0 50px !important;
-    background: black !important
+    background: black !important;
+  }
+
+  .workshopDesktop {
+    display: none
+  }
+
+  .workshopMobile {
+    display: block
+  }
+  .workshopTextWrapper {
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    height: 80vh;
+    align-items: center;
+  }
+  #workshopPagination {
+    transform: translateY(38px)
+  }
+  .infoPagination {
+    position: absolute;
+    bottom: 38px;
+    width: calc(100vw - 10px);
+    height: 2.2px;
+    border-radius: 20px;
+    background: black;
+    margin-left: 5px;
   }
 }

@@ -10,35 +10,18 @@ const down = ["-100vh", "100vh"];
 
 function MyApp({ Component, pageProps }) {
   const [english, setEnglish] = useState(false);
-  // const [directionsAbout, setDirectionsAbout] = useState(up);
-  // const [directionsWorkshop, setDirectionsWorkshop] = useState(up);
-  // const [directionsInfo, setDirectionsInfo] = useState(down);
-  const [sliderTitle, setSliderTitle] = useState("")
+  const [functionAbout, setFunctionAbout] = useState()
   const location = useRouter();
 
-  // useEffect(() => {
-  //   location.pathname == "/about" &&
-  //     (setDirectionsAbout(down),
-  //     setDirectionsWorkshop(up),
-  //     setDirectionsInfo(up));
-  //   location.pathname == "/workshop" &&
-  //     (setDirectionsAbout(up),
-  //     setDirectionsWorkshop(down),
-  //     setDirectionsInfo(up));
-  //   location.pathname == "/info" &&
-  //     (setDirectionsAbout(up),
-  //     setDirectionsWorkshop(down),
-  //     setDirectionsInfo(up));
-  // }, [location]);
 
-  // console.log(directionsAbout);
   return (
     <>
-      <Nav
+      {/* <Nav
         english={english}
         setEnglish={setEnglish}
         sliderTitle={sliderTitle}
-      />
+        functionAbout={functionAbout}
+      /> */}
       <AnimatePresence mode="popLayout">
         <motion.div
           location={location}
@@ -55,7 +38,6 @@ function MyApp({ Component, pageProps }) {
             // directionsInfo={directionsInfo}
             english={english}
             setEnglish={setEnglish}
-            setSliderTitle={setSliderTitle}
           />
         </motion.div>
       </AnimatePresence>

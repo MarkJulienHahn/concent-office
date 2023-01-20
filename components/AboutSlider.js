@@ -1,3 +1,4 @@
+import { useState, useRef } from "react";
 import { useSwiper } from "swiper/react";
 import AboutSliderInner from "./AboutSliderInner";
 
@@ -6,17 +7,15 @@ import "swiper/css";
 
 import { EffectCreative } from "swiper";
 
-const AboutSlider = ({ entry }) => {
-  const swiper = useSwiper();
+const AboutSlider = ({ entry, nextSlide, prevSlide }) => {
+  const swiperRef = useRef(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   return (
     <>
-      {/* <div className={"swiperNav"}>
-        <div className={"swiperPrev"} onClick={() => swiper.slidePrev()}></div>
-        <div className={"swiperNext"} onClick={() => swiper.slideNext()}></div>
-      </div> */}
-      <div           className="swiper">
+      <div className="swiper">
         <Swiper
+          ref={swiperRef}
           effect={"creative"}
           modules={[EffectCreative]}
           creativeEffect={{
@@ -27,14 +26,25 @@ const AboutSlider = ({ entry }) => {
               translate: ["100%", 0, 0],
             },
           }}
-
+          speed={500}
         >
           {entry.map((image, i) => (
-            <SwiperSlide key={i}>
+            <>
+              <SwiperSlide key={i}>
+                {/* {i == 0 && <button onClick={nextSlide}>BUTTON</button>} */}
                 <div className="swiperImageSlideIn">
-                  <AboutSliderInner image={image} />
+                  <AboutSliderInner
+                    i={i}
+                    setCurrentIndex={setCurrentIndex}
+                    currentIndex={currentIndex}
+                    length={entry.length}
+                    image={image}
+                    nextSlide={nextSlide}
+                    prevSlide={prevSlide}
+                  />
                 </div>
-            </SwiperSlide>
+              </SwiperSlide>
+            </>
           ))}
         </Swiper>
       </div>

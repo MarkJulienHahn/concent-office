@@ -4,7 +4,7 @@ import styles from "../styles/Nav.module.css";
 
 import Link from "next/link";
 
-const Nav = ({ english, setEnglish, sliderTitle }) => {
+const Nav = ({ english, setEnglish, sliderTitle, functionAbout }) => {
   const router = useRouter();
 
   const [active, setActive] = useState(false);
@@ -40,7 +40,8 @@ const Nav = ({ english, setEnglish, sliderTitle }) => {
             <span>office</span>
           </Link>
         </div>
-        <div
+
+        {/* <div
           className={styles.navInner}
           style={{ transform: active ? "translateY(0)" : "translateY(-100px)" }}
         >
@@ -59,10 +60,30 @@ const Nav = ({ english, setEnglish, sliderTitle }) => {
               info
             </span>
           </Link>
+        </div> */}
+
+        <div
+          className={styles.navInner}
+          style={{ transform: active ? "translateY(0)" : "translateY(-100px)" }}
+        >
+          <span className={styles.navLink} style={{ width: "60px" }} onClick={() => functionAbout(0)}>
+            about
+          </span>
+
+          <Link href="/workshop">
+            <span className={styles.navLink} style={{ width: "95px" }}>
+              workshop
+            </span>
+          </Link>
+          <Link href="/info">
+            <span className={styles.navLink} style={{ width: "38px" }}>
+              info
+            </span>
+          </Link>
         </div>
       </div>
 
-      <Link href={(router.route == "/") ? "/about" : "/"}>
+      <Link href={router.route == "/" ? "/about" : "/"}>
         <div
           className={styles.navMobileWrapper}
           onMouseEnter={() => setActive(true)}
@@ -80,9 +101,7 @@ const Nav = ({ english, setEnglish, sliderTitle }) => {
       </Link>
 
       {router.route !== "/" && (
-        <div
-          className={styles.navInnerMobile}
-        >
+        <div className={styles.navInnerMobile}>
           <Link href="/about">
             <span className={styles.navLink} style={{ width: "60px" }}>
               about

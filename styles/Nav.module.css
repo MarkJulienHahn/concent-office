@@ -6,6 +6,8 @@
   justify-content: center;
   padding-top: 10px;
   z-index: 100;
+  color: white;
+  mix-blend-mode: difference;
 }
 
 .navMobileWrapper {
@@ -20,7 +22,7 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #000;
+  background-color: white;
   transform: scaleX(0) translateY(26px);
   transition: transform 0.3s ease;
 }
@@ -47,12 +49,18 @@
   flex-direction: column;
 }
 
+.navInner span, .navOuter span {
+  cursor: pointer;
+}
+
 .navBottom {
   position: fixed;
   bottom: 20px;
   display: flex;
   width: 100%;
   z-index: 100;
+  color: white;
+  mix-blend-mode: difference;
 }
 
 .navBottomInner {
@@ -66,11 +74,11 @@
 
 .navConcept {
   font-family: "office";
-  line-height: 8px;
+  line-height: 22.5px;
 }
 
 .active {
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid white;
   cursor: pointer;
 }
 

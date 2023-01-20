@@ -2,48 +2,44 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/router";
 import { AnimatePresence, motion } from "framer-motion";
 
-import { useInView } from "react-intersection-observer";
-
 import Head from "next/head";
 
-import Layout from "../components/Layout";
+import styles from "../styles/Nav.module.css";
+
 import Landing from "../components/Landing";
 import Projects from "../components/Projects";
 
+import Workshop from "../components/Workshop";
+import About from "../components/About";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Pagination } from "swiper";
+
 import client from "../client";
+import Info from "../components/Info";
 
-export default function Home({ projects, english, setSliderTitle }) {
+export default function Home({
+  projects,
+  about,
+  workshop,
+  info,
+  english,
+  setEnglish,
+}) {
   const location = useRouter();
+  const [active, setActive] = useState(false);
+  const [sliderTitle, setSliderTitle] = useState("");
+  const [swiperIndex, setSwiperIndex] = useState(0);
 
-  const { ref: projectsRef, inView: projIsVisible } = useInView({
-    threshold: 0.01,
-  });
-  const { ref: landingRef, inView: landingIsVisible } = useInView({
-    threshold: 0.01,
-  });
+  const swiperRef = useRef(null);
 
-  const scrollDown = () => {
-    window.scrollTo({
-      top: 100000,
-      behavior: "smooth",
-    });
-  }
+  const nextSlide = () => swiperRef.current.swiper.slideTo(1);
 
-  useEffect(() => {
-    projIsVisible &&
-      window.scrollTo({
-        top: 100000,
-        behavior: "smooth",
-      });
-  }, [projIsVisible]);
-
-  useEffect(() => {
-    landingIsVisible &&
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth",
-      });
-  }, [landingIsVisible]);
+  // useEffect(() => {
+  //   console.log(swiperIndex)
+  // })
 
 
   return (
@@ -54,23 +50,212 @@ export default function Home({ projects, english, setSliderTitle }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
+      {/* NAV */}
+
+      <div
+        className={styles.navWrapper}
+        onMouseEnter={() => setActive(true)}
+        onMouseLeave={() => setActive(false)}
+      >
+        <div
+          className={styles.navOuter}
+          style={{ width: active ? "50vw" : "140px" }}
+        >
+          <span
+            className={styles.navConcept}
+            onClick={() => swiperRef.current.swiper.slideTo(0)}
+          >
+            concept
+          </span>
+          <span onClick={() => swiperRef.current.swiper.slideTo(0)}>
+            office
+          </span>
+        </div>
+
+        <div
+          className={styles.navInner}
+          style={{
+            transform: active ? "translateY(0)" : "translateY(-100px)",
+          }}
+        >
+          <span
+            className={styles.navLink}
+            style={{ width: "60px" }}
+            onClick={() => swiperRef.current.swiper.slideTo(2)}
+          >
+            about
+          </span>
+          <span
+            className={styles.navLink}
+            style={{ width: "95px" }}
+            onClick={() => swiperRef.current.swiper.slideTo(3)}
+          >
+            workshop
+          </span>{" "}
+          <span
+            className={styles.navLink}
+            style={{ width: "38px" }}
+            onClick={() => swiperRef.current.swiper.slideTo(4)}
+          >
+            info
+          </span>
+        </div>
+      </div>
+
+      {/* NAV BOTTOM */}
+
+      <div className={styles.navBottom}>
+        <div className={styles.navBottomInner}>
+          <span className={styles.copyright}>{sliderTitle}</span>
+        </div>
+        <div className={styles.navBottomInner}>
+          {swiperIndex != 0 && (
+            <>
+              <span
+                onClick={() => setEnglish(!english)}
+                className={english ? styles.active : styles.passive}
+              >
+                en
+              </span>
+              /
+              <span
+                onClick={() => setEnglish(!english)}
+                className={!english ? styles.active : styles.passive}
+              >
+                de
+              </span>
+            </>
+          )}
+        </div>
+      </div>
+
+      {/* NAV MOBILE */}
+
+      <div className={styles.navMobileWrapper}>
+        <div
+          className={styles.navMobileOuter}
+          style={swiperIndex <= 1 ? { width: "170px" } : { width: "100%" }}
+          onClick={
+            swiperIndex <= 1
+              ? () => swiperRef.current.swiper.slideTo(2)
+              : () => {}
+          }
+        >
+          <span
+            className={styles.navMobileConcept}
+            onClick={() => swiperRef.current.swiper.slideTo(0)}
+          >
+            concept
+          </span>
+
+          <span onClick={() => swiperRef.current.swiper.slideTo(0)}>
+            office
+          </span>
+        </div>
+      </div>
+
+      {swiperIndex > 1 ? (
+        <div className={styles.navInnerMobile}>
+          <span
+            className={styles.navLink}
+            style={{ width: "60px" }}
+            onClick={() => swiperRef.current.swiper.slideTo(2)}
+          >
+            about
+          </span>
+          <span
+            className={styles.navLink}
+            style={{ width: "95px" }}
+            onClick={() => swiperRef.current.swiper.slideTo(3)}
+          >
+            workshop
+          </span>
+          <span
+            className={styles.navLink}
+            style={{ width: "38px" }}
+            onClick={() => swiperRef.current.swiper.slideTo(4)}
+          >
+            info
+          </span>
+        </div>
+      ) : ""}
+
       <AnimatePresence>
         <motion.div
           location={location}
           key={location.pathname}
-          initial={{ y: 0, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: "-100vh", opacity: 0 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          <Layout>
-            <div ref={landingRef} onClick={scrollDown}>
-              <Landing />
-            </div>
-            <div ref={projectsRef}>
-              <Projects projects={projects} setSliderTitle={setSliderTitle} english={english}/>
-            </div>
-          </Layout>
+          <div
+            style={{
+              width: "100vw",
+              height: "calc(100vh + 1px)",
+              overflow: "hidden",
+              background: "white",
+            }}
+          >
+            <Swiper
+              ref={swiperRef}
+              direction={"vertical"}
+              slidesPerView={1}
+              spaceBetween={0}
+              keyboard={{
+                enabled: true,
+              }}
+              modules={[Pagination]}
+              allowTouchMove={false}
+              speed={1000}
+            >
+              <SwiperSlide>
+                <div onClick={() => swiperRef.current.swiper.slideTo(1)}>
+                  <Landing
+                    setSliderTitle={setSliderTitle}
+                    setSwiperIndex={setSwiperIndex}
+                    swiperIndex={swiperIndex}
+                    nextSlide={nextSlide}
+                  />
+                </div>
+              </SwiperSlide>
+              <SwiperSlide>
+                <Projects
+                  projects={projects}
+                  setSliderTitle={setSliderTitle}
+                  setSwiperIndex={setSwiperIndex}
+                  swiperIndex={swiperIndex}
+                  english={english}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <About
+                  english={english}
+                  swiperIndex={swiperIndex}
+                  setSwiperIndex={setSwiperIndex}
+                  setSliderTitle={setSliderTitle}
+                  about={about}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Workshop
+                  english={english}
+                  swiperIndex={swiperIndex}
+                  setSwiperIndex={setSwiperIndex}
+                  setSliderTitle={setSliderTitle}
+                  workshop={workshop}
+                />
+              </SwiperSlide>
+              <SwiperSlide>
+                <Info
+                  swiperIndex={swiperIndex}
+                  setSwiperIndex={setSwiperIndex}
+                  setSliderTitle={setSliderTitle}
+                  info={info}
+                />
+              </SwiperSlide>
+            </Swiper>
+          </div>
         </motion.div>
       </AnimatePresence>
     </div>
@@ -81,9 +266,19 @@ export async function getServerSideProps() {
   const projects = await client.fetch(`
   *   [_type == "projects"]|order(orderRank){"image": image.asset->{url, "dimensions": metadata.dimensions}, alt, ...}`);
 
+  const about = await client.fetch(`
+  *[_type == "about"]|order(orderRank){"image": image.asset->{url, "dimensions": metadata.dimensions}, description, text, textEn, "customSlider": customSlider[].asset->{url, "dimensions": metadata.dimensions}}`);
+  const workshop = await client.fetch(`
+  *   [_type == "workshop"]{...}`);
+  const info = await client.fetch(`
+  *   [_type == "info"]{...}`);
+
   return {
     props: {
       projects,
+      about,
+      workshop,
+      info,
     },
   };
 }

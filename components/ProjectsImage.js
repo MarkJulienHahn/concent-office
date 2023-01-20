@@ -2,18 +2,19 @@ import { useEffect } from "react";
 import { useSwiperSlide, useSwiper } from "swiper/react";
 import Image from "next/image";
 
-const ProjectsImage = ({ project, setSliderTitle, english }) => {
+const ProjectsImage = ({ project, setSliderTitle, swiperIndex, english }) => {
   const swiper = useSwiper();
   const swiperSlide = useSwiperSlide();
 
   useEffect(() => {
-    english
-      ? swiperSlide.isActive
-        ? setSliderTitle(project.description)
-        : ""
-      : swiperSlide.isActive
-      ? setSliderTitle(project.descriptionEn)
-      : "";
+    swiperIndex == 1 ?
+      (english
+        ? swiperSlide.isActive
+          ? setSliderTitle(project.description)
+          : ""
+        : swiperSlide.isActive
+        ? setSliderTitle(project.descriptionEn)
+        : "") : ""
   });
 
   return (
@@ -44,13 +45,7 @@ const ProjectsImage = ({ project, setSliderTitle, english }) => {
         )}
       </div>
       <div className={"projectsMobile"}>
-
-          <Image
-            src={project.image.url}
-            layout="fill"
-            objectFit="cover"
-          />
-
+        <Image src={project.image.url} layout="fill" objectFit="cover" />
       </div>
     </>
   );
