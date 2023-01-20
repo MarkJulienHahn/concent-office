@@ -50,42 +50,45 @@ const About = ({ about, english, setSliderTitle, setSwiperIndex }) => {
           modules={[Pagination]}
           speed={1000}
         >
-          {about.map((entry, i) => (
-            <>
-              {entry.image ? (
-                <Div100vh>
-                  <SwiperSlide key={i}>
-                    <AboutImage entry={entry} />
-                  </SwiperSlide>
-                </Div100vh>
-              ) : (
-                ""
-              )}
-              {entry.text ? (
-                <Div100vh>
-                  <SwiperSlide key={i}>
-                    <AboutText entry={entry} english={english} />
-                  </SwiperSlide>
-                </Div100vh>
-              ) : (
-                ""
-              )}
-              {entry.customSlider ? (
-                <Div100vh>
-                  <SwiperSlide key={i}>
-                    <AboutSlider
-                      entry={entry.customSlider}
-                      nextSlide={nextSlide}
-                      prevSlide={prevSlide}
-                      english={english}
-                    />
-                  </SwiperSlide>
-                </Div100vh>
-              ) : (
-                ""
-              )}
-            </>
-          ))}
+          {" "}
+          <Div100vh>
+            {about.map((entry, i) => (
+              <>
+                {entry.image ? (
+                  <Div100vh>
+                    <SwiperSlide key={i}>
+                      <AboutImage entry={entry} />
+                    </SwiperSlide>
+                  </Div100vh>
+                ) : (
+                  ""
+                )}
+                {entry.text ? (
+                  <Div100vh>
+                    <SwiperSlide key={i}>
+                      <AboutText entry={entry} english={english} />
+                    </SwiperSlide>
+                  </Div100vh>
+                ) : (
+                  ""
+                )}
+                {entry.customSlider ? (
+                  <Div100vh>
+                    <SwiperSlide key={i}>
+                      <AboutSlider
+                        entry={entry.customSlider}
+                        nextSlide={nextSlide}
+                        prevSlide={prevSlide}
+                        english={english}
+                      />
+                    </SwiperSlide>
+                  </Div100vh>
+                ) : (
+                  ""
+                )}
+              </>
+            ))}{" "}
+          </Div100vh>
         </Swiper>
       </div>
     </Div100vh>
