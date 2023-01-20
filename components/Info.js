@@ -24,7 +24,7 @@ const Info = ({ info, setSliderTitle, setSwiperIndex }) => {
         <div className="infoWrapper">
           <PortableText value={info[0].text} />
         </div>
-        <div className="infoPagination"></div>
+        <div className="infoPagination" style={{top: `calc(${height}px - 40px)`}}></div>
       </div>
     </Div100vh>
   );

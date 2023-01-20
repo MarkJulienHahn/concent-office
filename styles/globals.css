@@ -220,8 +220,8 @@ p {
     height: 100%;
   }
 
-  .swiperImageSlideIn {
-    transform: scale(90%);
+  .swiperImageSlideIn img{
+    transform: scale(80%);
   }
   .swiperSingleAbout {
     height: 80%;
@@ -279,12 +279,12 @@ p {
     margin-left: 5px;
   }
   .swiperImageAbout {
-    height: 90%;
+    height: 70%;
 
   }
   
   .swiperImageSlideIn {
-    height: 90%;
+    height: 50vh;
 
   }
 }
