@@ -11,12 +11,19 @@ const Info = ({ info, setSliderTitle, setSwiperIndex }) => {
   const swiperSlide = useSwiperSlide();
   const height = use100vh();
 
-  const { ref, inView, entry } = useInView();
+  const { ref, inView, entry } = useInView({
+    threshold: 0.5,
+  });
+  
   useEffect(() => {
     swiperSlide.isActive
-      ? (setSliderTitle(<>©{new Date().getFullYear()}</>), setSwiperIndex(4))
+      ? (setSliderTitle(<>©{new Date().getFullYear()}</>))
       : "";
   }, [inView]);
+
+  useEffect(() => {
+    swiperSlide.isActive ? setSwiperIndex(4) : "";
+  });
 
   return (
     <Div100vh>

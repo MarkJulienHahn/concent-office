@@ -2,7 +2,6 @@ import { useEffect, useRef } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useSwiperSlide } from "swiper/react";
-import { PortableText } from "@portabletext/react";
 import { useInView } from "react-intersection-observer";
 
 import Div100vh from "react-div-100vh";
@@ -13,10 +12,7 @@ import { Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/pagination";
 
-import AboutText from "./AboutText";
-import WorkshopMobile from "./WorkshopMobile";
-
-const Workshop = ({
+const WorkshopMobile = ({
   workshop,
   english,
   setSliderTitle,
@@ -43,7 +39,7 @@ const Workshop = ({
 
   useEffect(() => {
     swiperSlide.isActive
-      ? setSliderTitle(<>©{new Date().getFullYear()}</>)
+      ? (setSliderTitle(<>©{new Date().getFullYear()}</>))
       : "";
   }, [inView]);
 
@@ -52,29 +48,38 @@ const Workshop = ({
   });
 
   return (
-    <>
-      <div
-        className="workshopDesktop"
-        style={{ width: "100vw", height: "100%" }}
-        ref={ref}
+    <Div100vh>
+    <div
+      className="workshopMobile"
+      style={{ width: "100vw", height: "100%" }}
+    >
+      <Swiper
+        ref={swiperRef}
+        slidesPerView={1}
+        pagination={pagination}
+        modules={[Pagination]}
+        speed={1000}
+        style={{height: `${height}px`}}
       >
-        <div className="swiperSingle">
-          <PortableText
-            value={english ? workshop[0].textEn : workshop[0].text}
-          />
-          <a href=""><p>{english ? "Book Workshop" : "Workshop buchen"}</p></a>
-        </div>
-      </div>
+        {english
+          ? workshop[0].textMobileEn.map((entry, i) => (
+              <SwiperSlide key={i}>
+                <div className={"workshopTextWrapper"}>
+                  <p>{entry}</p>
+                </div>
+              </SwiperSlide>
+            ))
+          : workshop[0].textMobile.map((entry, i) => (
+              <SwiperSlide key={i}>
+                <div className={"workshopTextWrapper"}>
+                  <p>{entry}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+      </Swiper>
+    </div>
+  </Div100vh>
+  )
+}
 
-      <WorkshopMobile
-        english={english}
-        swiperIndex={swiperIndex}
-        setSwiperIndex={setSwiperIndex}
-        setSliderTitle={setSliderTitle}
-        workshop={workshop}
-      />
-    </>
-  );
-};
-
-export default Workshop;
+export default WorkshopMobile

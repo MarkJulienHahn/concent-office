@@ -18,7 +18,7 @@ import Div100vh from "react-div-100vh";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper";
+import { Mousewheel, Pagination } from "swiper";
 
 import client from "../client";
 import Info from "../components/Info";
@@ -79,9 +79,16 @@ export default function Home({
         <div
           className={styles.navInner}
           style={{
-            transform: active ? "translateY(0)" : "translateY(-100px)",
+            transform: active ? "translateY(0)" : "translateY(-130px)",
           }}
         >
+          <span
+            className={styles.navLink}
+            style={{ width: "50px" }}
+            onClick={() => swiperRef.current.swiper.slideTo(1)}
+          >
+            work
+          </span>
           <span
             className={styles.navLink}
             style={{ width: "60px" }}
@@ -162,6 +169,13 @@ export default function Home({
         <div className={styles.navInnerMobile}>
           <span
             className={styles.navLink}
+            style={{ width: "50px" }}
+            onClick={() => swiperRef.current.swiper.slideTo(1)}
+          >
+            work
+          </span>
+          <span
+            className={styles.navLink}
             style={{ width: "60px" }}
             onClick={() => swiperRef.current.swiper.slideTo(2)}
           >
@@ -213,9 +227,10 @@ export default function Home({
                 keyboard={{
                   enabled: true,
                 }}
-                modules={[Pagination]}
+                modules={[Mousewheel, Pagination]}
                 allowTouchMove={false}
                 speed={1000}
+                mousewheel={{ enabled: true, thresholdDelta: 100 }}
               >
                 <SwiperSlide>
                   <div onClick={() => swiperRef.current.swiper.slideTo(1)}>

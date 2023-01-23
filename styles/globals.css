@@ -195,6 +195,15 @@ p {
   display: none;
 }
 
+@media screen and (max-width: 1200px) {
+  p {
+    font-size: 32px;
+    line-height: 38px;
+    word-spacing: -1.5px;
+    letter-spacing: 0;
+  }
+}
+
 
 
 @media screen and (max-width: 600px) {
