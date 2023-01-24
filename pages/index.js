@@ -219,7 +219,7 @@ export default function Home({
                 background: "white",
               }}
             >
-              {/* <Swiper
+              <Swiper
                 ref={swiperRef}
                 direction={"vertical"}
                 slidesPerView={1}
@@ -251,7 +251,7 @@ export default function Home({
                     english={english}
                   />
                 </SwiperSlide>
-                <SwiperSlide>
+                {/* <SwiperSlide>
                   <About
                     english={english}
                     swiperIndex={swiperIndex}
@@ -276,8 +276,8 @@ export default function Home({
                     setSliderTitle={setSliderTitle}
                     info={info}
                   />
-                </SwiperSlide>
-              </Swiper> */}
+                </SwiperSlide> */}
+              </Swiper>
             </div>{" "}
           </Div100vh>
         </motion.div>
