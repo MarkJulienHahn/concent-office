@@ -24,10 +24,10 @@ import client from "../client";
 import Info from "../components/Info";
 
 export default function Home({
-  // projects,
-  // about,
-  // workshop,
-  // info,
+  projects,
+  about,
+  workshop,
+  info,
   english,
   setEnglish,
 }) {
