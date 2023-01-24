@@ -66,7 +66,7 @@ const About = ({
           style={{ height: `${height}px` }}
           // loop={true}
         >
-          {about.map((entry, i) => (
+          {/* {about.map((entry, i) => (
             <>
               {entry.image ? (
                 <Div100vh>
@@ -106,7 +106,7 @@ const About = ({
                 ""
               )}
             </>
-          ))}
+          ))} */}
         </Swiper>
       </div>
     </Div100vh>
