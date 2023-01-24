@@ -23,7 +23,7 @@ const About = ({
   setSwiperIndex,
 }) => {
   const swiperSlide = useSwiperSlide();
-  // const swiperRef = useRef(null);
+  const swiperRef = useRef(null);
 
   const height = use100vh();
 
@@ -54,16 +54,14 @@ const About = ({
 
   return (
     <Div100vh>
-      <div 
-      // ref={ref}
-      >
+      <div ref={ref}>
         <Swiper
-          // ref={swiperRef}
-          // slidesPerView={1}
-          // pagination={pagination}
-          // modules={[Pagination]}
-          // speed={1000}
-          // style={{ height: `${height}px` }}
+          ref={swiperRef}
+          slidesPerView={1}
+          pagination={pagination}
+          modules={[Pagination]}
+          speed={1000}
+          style={{ height: `${height}px` }}
         >
           {about.map((entry, i) => (
             <>
