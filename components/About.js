@@ -52,8 +52,6 @@ const About = ({
     swiperSlide.isActive ? setSwiperIndex(2) : "";
   });
 
-  console.log(swiperRef.current.swiper.activeIndex)
-
   return (
     <Div100vh>
       <div ref={ref}>
