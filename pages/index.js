@@ -251,7 +251,7 @@ export default function Home({
                     english={english}
                   />
                 </SwiperSlide>
-                {/* <SwiperSlide>
+                <SwiperSlide>
                   <About
                     english={english}
                     swiperIndex={swiperIndex}
@@ -260,7 +260,7 @@ export default function Home({
                     about={about}
                   />
                 </SwiperSlide>
-                <SwiperSlide>
+                {/*         <SwiperSlide>
                   <Workshop
                     english={english}
                     swiperIndex={swiperIndex}
