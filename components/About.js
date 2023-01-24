@@ -58,13 +58,12 @@ const About = ({
       // ref={ref}
       >
         <Swiper
-          ref={swiperRef}
-          slidesPerView={1}
-          pagination={pagination}
-          modules={[Pagination]}
-          speed={1000}
-          style={{ height: `${height}px` }}
-          // loop={true}
+          // ref={swiperRef}
+          // slidesPerView={1}
+          // pagination={pagination}
+          // modules={[Pagination]}
+          // speed={1000}
+          // style={{ height: `${height}px` }}
         >
           {/* {about.map((entry, i) => (
             <>
