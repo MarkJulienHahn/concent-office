@@ -22,35 +22,35 @@ const About = ({
   setSliderTitle,
   setSwiperIndex,
 }) => {
-  // const swiperSlide = useSwiperSlide();
+  const swiperSlide = useSwiperSlide();
   // const swiperRef = useRef(null);
 
-  // const height = use100vh();
+  const height = use100vh();
 
-  // const { ref, inView, entry } = useInView({
-  //   threshold: 0.5,
-  // });
+  const { ref, inView, entry } = useInView({
+    threshold: 0.5,
+  });
 
-  // const pagination = {
-  //   clickable: true,
-  //   renderBullet: function (index, className) {
-  //     return '<span class="' + className + '">' + "</span>";
-  //   },
-  // };
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span class="' + className + '">' + "</span>";
+    },
+  };
 
-  // const firstSlide = () => swiperRef.current.swiper.slideTo(0);
-  // const nextSlide = () => swiperRef.current.swiper.slideTo(5);
-  // const prevSlide = () => swiperRef.current.swiper.slideTo(3);
+  const firstSlide = () => swiperRef.current.swiper.slideTo(0);
+  const nextSlide = () => swiperRef.current.swiper.slideTo(5);
+  const prevSlide = () => swiperRef.current.swiper.slideTo(3);
 
-  // useEffect(() => {
-  //   swiperSlide.isActive
-  //     ? setSliderTitle(<>©{new Date().getFullYear()}</>)
-  //     : "";
-  // }, [inView]);
+  useEffect(() => {
+    swiperSlide.isActive
+      ? setSliderTitle(<>©{new Date().getFullYear()}</>)
+      : "";
+  }, [inView]);
 
-  // useEffect(() => {
-  //   swiperSlide.isActive ? setSwiperIndex(2) : "";
-  // });
+  useEffect(() => {
+    swiperSlide.isActive ? setSwiperIndex(2) : "";
+  });
 
   return (
     <Div100vh>
@@ -65,7 +65,7 @@ const About = ({
           // speed={1000}
           // style={{ height: `${height}px` }}
         >
-          {/* {about.map((entry, i) => (
+          {about.map((entry, i) => (
             <>
               {entry.image ? (
                 <Div100vh>
@@ -105,7 +105,7 @@ const About = ({
                 ""
               )}
             </>
-          ))} */}
+          ))}
         </Swiper>
       </div>
     </Div100vh>
