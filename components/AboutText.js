@@ -2,7 +2,7 @@ import { useSwiper } from "swiper/react";
 import { PortableText } from "@portabletext/react";
 import Div100vh from "react-div-100vh";
 
-const AboutText = ({ entry, english }) => {
+const AboutText = ({ entry, english,firstSlide }) => {
   const swiper = useSwiper();
 
   return (

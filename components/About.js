@@ -15,7 +15,13 @@ import AboutImage from "./AboutImage";
 import AboutText from "./AboutText";
 import AboutSlider from "./AboutSlider";
 
-const About = ({ about, english, setSliderTitle, setSwiperIndex }) => {
+const About = ({
+  about,
+  english,
+  swiperIndex,
+  setSliderTitle,
+  setSwiperIndex,
+}) => {
   const swiperSlide = useSwiperSlide();
   const swiperRef = useRef(null);
 
@@ -32,6 +38,7 @@ const About = ({ about, english, setSliderTitle, setSwiperIndex }) => {
     },
   };
 
+  const firstSlide = () => swiperRef.current.swiper.slideTo(0);
   const nextSlide = () => swiperRef.current.swiper.slideTo(5);
   const prevSlide = () => swiperRef.current.swiper.slideTo(3);
 
@@ -45,7 +52,7 @@ const About = ({ about, english, setSliderTitle, setSwiperIndex }) => {
     swiperSlide.isActive ? setSwiperIndex(2) : "";
   });
 
-
+  console.log(swiperRef.current.swiper.activeIndex)
 
   return (
     <Div100vh>
@@ -73,7 +80,12 @@ const About = ({ about, english, setSliderTitle, setSwiperIndex }) => {
               {entry.text ? (
                 <Div100vh>
                   <SwiperSlide key={i}>
-                    <AboutText entry={entry} english={english} />
+                    <AboutText
+                      entry={entry}
+                      english={english}
+                      swiperIndex={swiperIndex}
+                      fristSlide={firstSlide}
+                    />
                   </SwiperSlide>
                 </Div100vh>
               ) : (

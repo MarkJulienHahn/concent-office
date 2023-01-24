@@ -42,9 +42,9 @@ export default function Home({
 
   const nextSlide = () => swiperRef.current.swiper.slideTo(1);
 
-  // useEffect(() => {
-  //   console.log(swiperIndex)
-  // })
+  useEffect(() => {
+    swiperIndex >= 1 && setActive(true), swiperIndex < 1 && setActive(false);
+  }, [swiperIndex]);
 
   return (
     <div>
@@ -59,7 +59,7 @@ export default function Home({
       <div
         className={styles.navWrapper}
         onMouseEnter={() => setActive(true)}
-        onMouseLeave={() => setActive(false)}
+        onMouseLeave={swiperIndex < 1 ? () => setActive(false) : () => {}}
       >
         <div
           className={styles.navOuter}
@@ -83,28 +83,28 @@ export default function Home({
           }}
         >
           <span
-            className={styles.navLink}
+            className={swiperIndex == 1 ? styles.navLinkActive : styles.navLink}
             style={{ width: "50px" }}
             onClick={() => swiperRef.current.swiper.slideTo(1)}
           >
             work
           </span>
           <span
-            className={styles.navLink}
+            className={swiperIndex == 2 ? styles.navLinkActive : styles.navLink}
             style={{ width: "60px" }}
             onClick={() => swiperRef.current.swiper.slideTo(2)}
           >
             about
           </span>
           <span
-            className={styles.navLink}
+            className={swiperIndex == 3 ? styles.navLinkActive : styles.navLink}
             style={{ width: "95px" }}
             onClick={() => swiperRef.current.swiper.slideTo(3)}
           >
             workshop
           </span>{" "}
           <span
-            className={styles.navLink}
+            className={swiperIndex == 4 ? styles.navLinkActive : styles.navLink}
             style={{ width: "38px" }}
             onClick={() => swiperRef.current.swiper.slideTo(4)}
           >
@@ -145,9 +145,9 @@ export default function Home({
       <div className={styles.navMobileWrapper}>
         <div
           className={styles.navMobileOuter}
-          style={swiperIndex <= 1 ? { width: "170px" } : { width: "100%" }}
+          style={swiperIndex < 1 ? { width: "170px" } : { width: "100%" }}
           onClick={
-            swiperIndex <= 1
+            swiperIndex < 1
               ? () => swiperRef.current.swiper.slideTo(2)
               : () => {}
           }
@@ -165,7 +165,7 @@ export default function Home({
         </div>
       </div>
 
-      {swiperIndex > 1 ? (
+      {swiperIndex > 0 ? (
         <div className={styles.navInnerMobile}>
           <span
             className={styles.navLink}

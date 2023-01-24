@@ -33,15 +33,7 @@ const ProjectsImage = ({ project, setSliderTitle, swiperIndex, english }) => {
             loading="eager"
           />
         ) : (
-          <Image
-            src={project.image.url}
-            layout="responsive"
-            objectFit="contain"
-            height="100"
-            width="100"
-            objectPosition="left top"
-            loading="eager"
-          />
+          <Image src={project.image.url} layout="fill" objectFit="cover" />
         )}
       </div>
       <div className={"projectsMobile"}>
