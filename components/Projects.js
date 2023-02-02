@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 
 import { Pagination } from "swiper";
 import Div100vh from "react-div-100vh";
+import { use100vh } from "react-div-100vh";
 
 import { useInView } from "react-intersection-observer";
 import { useSwiperSlide } from "swiper/react";
@@ -21,10 +22,14 @@ const Projects = ({
 
   const { ref, inView, entry } = useInView();
 
+  const height = use100vh();
+
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
-      return '<span id="projectsPagination" class="' + className + '">' + "</span>";
+      return (
+        '<span id="projectsPagination" class="' + className + '">' + "</span>"
+      );
     },
   };
 
@@ -34,7 +39,10 @@ const Projects = ({
 
   return (
     <Div100vh>
-      <div className="projectsWrapper">
+      <div
+        className="projectsWrapper"
+        style={{ width: "100vw", height: "100%" }}
+      >
         <div ref={ref}>
           <Swiper
             slidesPerView={1}
@@ -42,6 +50,7 @@ const Projects = ({
             modules={[Pagination]}
             loop={true}
             speed={1000}
+            style={{height: `${height}px`}}
           >
             {projects.map((project, i) => (
               <SwiperSlide key={i}>
