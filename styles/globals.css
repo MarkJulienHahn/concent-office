@@ -109,10 +109,6 @@ p {
   display: none;
 }
 
-#projectsPagination {
-  display: none;
-}
-
 /* ABOUT */
 
 .swiperWrapper {
@@ -281,8 +277,8 @@ p {
     transform: translateY(29px);
   }
   #projectsPagination {
-    display: block;
-    /* transform: translateY(-31px); */
+    transform: translateY(-31px);
+    bottom: unset;
   }
   .infoPagination {
     position: fixed;
