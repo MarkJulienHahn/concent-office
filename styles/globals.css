@@ -282,9 +282,7 @@ p {
   }
   #projectsPagination {
     display: block;
-    top: 0;
-    position: fixed;
-    transform: translateY(-100px);
+    transform: translateY(-31px);
   }
   .infoPagination {
     position: fixed;
