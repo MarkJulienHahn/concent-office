@@ -6,7 +6,7 @@ body {
   font-size: 22px;
   background: white;
   -webkit-font-smoothing: antialiased;
--moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {
@@ -110,7 +110,7 @@ p {
 }
 
 #projectsPagination {
-  display: none
+  display: none;
 }
 
 /* ABOUT */
@@ -208,8 +208,6 @@ p {
   }
 }
 
-
-
 @media screen and (max-width: 600px) {
   p {
     font-size: 23px;
@@ -233,7 +231,7 @@ p {
     height: 100%;
   }
 
-  .swiperImageSlideIn img{
+  .swiperImageSlideIn img {
     transform: scale(60%);
   }
   .swiperSingleAbout {
@@ -266,11 +264,11 @@ p {
   }
 
   .workshopDesktop {
-    display: none
+    display: none;
   }
 
   .workshopMobile {
-    display: block
+    display: block;
   }
   .workshopTextWrapper {
     padding: 10px;
@@ -280,13 +278,13 @@ p {
     align-items: center;
   }
   #workshopPagination {
-    transform: translateY(29px)
+    transform: translateY(29px);
   }
   #projectsPagination {
     display: block;
+    top: 0;
     position: fixed;
-    bottom: 0;
-    transform: translateY(-120px)
+    transform: translateY(-33px);
   }
   .infoPagination {
     position: fixed;
@@ -299,11 +297,9 @@ p {
   }
   .swiperImageAbout {
     height: 70%;
-
   }
-  
+
   .swiperImageSlideIn {
     height: 70vh;
-
   }
 }
