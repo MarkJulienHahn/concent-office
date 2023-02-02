@@ -284,7 +284,7 @@ p {
     display: block;
     top: 0;
     position: fixed;
-    transform: translateY(-33px);
+    transform: translateY(-100px);
   }
   .infoPagination {
     position: fixed;
