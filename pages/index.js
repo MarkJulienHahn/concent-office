@@ -228,7 +228,6 @@ export default function Home({
                   enabled: true,
                 }}
                 modules={[Mousewheel, Pagination]}
-                allowTouchMove={false}
                 speed={1000}
                 mousewheel={{ enabled: true, thresholdDelta: 100 }}
               >

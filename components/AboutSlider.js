@@ -1,5 +1,4 @@
 import { useState, useRef } from "react";
-import { useSwiper } from "swiper/react";
 import AboutSliderInner from "./AboutSliderInner";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -31,7 +30,6 @@ const AboutSlider = ({ entry, nextSlide, prevSlide }) => {
           {entry.map((image, i) => (
             <>
               <SwiperSlide key={i}>
-                {/* {i == 0 && <button onClick={nextSlide}>BUTTON</button>} */}
                 <div className="swiperImageSlideIn">
                   <AboutSliderInner
                     i={i}

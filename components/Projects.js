@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-import { use100vh } from "react-div-100vh";
+import { Pagination } from "swiper";
 import Div100vh from "react-div-100vh";
 
 import { useInView } from "react-intersection-observer";
@@ -21,6 +21,13 @@ const Projects = ({
 
   const { ref, inView, entry } = useInView();
 
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index, className) {
+      return '<span id="projectsPagination" class="' + className + '">' + "</span>";
+    },
+  };
+
   useEffect(() => {
     swiperSlide.isActive ? setSwiperIndex(1) : "";
   });
@@ -29,7 +36,13 @@ const Projects = ({
     <Div100vh>
       <div className="projectsWrapper">
         <div ref={ref}>
-          <Swiper slidesPerView={1} loop={true} speed={1000}>
+          <Swiper
+            slidesPerView={1}
+            pagination={pagination}
+            modules={[Pagination]}
+            loop={true}
+            speed={1000}
+          >
             {projects.map((project, i) => (
               <SwiperSlide key={i}>
                 <Div100vh>

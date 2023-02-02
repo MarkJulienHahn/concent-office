@@ -109,6 +109,10 @@ p {
   display: none;
 }
 
+#projectsPagination {
+  display: none
+}
+
 /* ABOUT */
 
 .swiperWrapper {
@@ -242,7 +246,7 @@ p {
   .swiper-pagination {
     width: 100vw !important;
     margin: 0;
-    padding-bottom: 105px;
+    padding-bottom: 89px;
     display: flex;
     justify-content: space-between;
     z-index: 10000 !important;
@@ -276,7 +280,11 @@ p {
     align-items: center;
   }
   #workshopPagination {
-    transform: translateY(38px)
+    transform: translateY(29px)
+  }
+  #projectsPagination {
+    display: block;
+    transform: translateY(-31px)
   }
   .infoPagination {
     position: fixed;
