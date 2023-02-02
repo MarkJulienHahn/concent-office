@@ -284,7 +284,9 @@ p {
   }
   #projectsPagination {
     display: block;
-    transform: translateY(-31px)
+    position: fixed;
+    bottom: 0;
+    transform: translateY(-120px)
   }
   .infoPagination {
     position: fixed;
