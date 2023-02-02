@@ -24,7 +24,7 @@ const Projects = ({
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
-      return '<span id="projectsPagination" class="' + className + '">' + "</span>";
+      return '<span id="workshopPagination" class="' + className + '">' + "</span>";
     },
   };
 

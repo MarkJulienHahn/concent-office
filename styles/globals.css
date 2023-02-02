@@ -278,7 +278,6 @@ p {
   }
   #projectsPagination {
     transform: translateY(-31px);
-    bottom: unset;
   }
   .infoPagination {
     position: fixed;
