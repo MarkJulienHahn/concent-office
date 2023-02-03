@@ -170,7 +170,7 @@
 
   .navMobileConcept {
     font-family: "office";
-    line-height: 26px;
+    line-height: 24px;
   }
   .navLink::before {
     content: "";

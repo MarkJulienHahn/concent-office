@@ -25,16 +25,17 @@ const Info = ({ info, setSliderTitle, setSwiperIndex }) => {
     swiperSlide.isActive ? setSwiperIndex(4) : "";
   });
 
-  console.log(info, info[0].insta);
-
   return (
     <Div100vh>
       <div style={{ width: "100vw", height: `${height}px` }} ref={ref}>
         <div className="infoWrapper">
-          <p>{info[0].email}</p>
+          <p>
+            <a href={`mailto:${info[0].email}`}> {info[0].email}</a>
+          </p>
           <p>{info[0].mobile}</p>
           <p>
-            insta: <a href={info[0].insta?.instalink} target="_blank" rel="noreferrer">
+            insta:{" "}
+            <a href={info[0].insta?.instalink} target="_blank" rel="noreferrer">
               {info[0].insta?.instaname}
             </a>{" "}
             <br />
