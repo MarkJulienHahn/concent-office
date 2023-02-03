@@ -107,12 +107,12 @@ p {
   opacity: 0.5;
 }
 
-/* .swiperPrev {
-  background: blue
+.swiperPrev {
+cursor: w-resize
 }
 .swiperNext {
-  background: red
-} */
+  cursor: e-resize
+}
 
 .projectsMobile {
   display: none;
