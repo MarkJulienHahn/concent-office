@@ -9,7 +9,7 @@ import { useInView } from "react-intersection-observer";
 import Div100vh from "react-div-100vh";
 import { use100vh } from "react-div-100vh";
 
-import { Pagination } from "swiper";
+import { Pagination, Mousewheel } from "swiper";
 
 import AboutImage from "./AboutImage";
 import AboutText from "./AboutText";

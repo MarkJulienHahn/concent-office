@@ -92,7 +92,8 @@ p {
 }
 
 .swiperNav {
-  position: fixed;
+  position: absolute;
+  top: 0; 
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -103,7 +104,15 @@ p {
 .swiperNext {
   width: 50%;
   height: 100%;
+  opacity: 0.5;
 }
+
+/* .swiperPrev {
+  background: blue
+}
+.swiperNext {
+  background: red
+} */
 
 .projectsMobile {
   display: none;

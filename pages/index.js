@@ -227,9 +227,9 @@ export default function Home({
                 keyboard={{
                   enabled: true,
                 }}
-                modules={[Mousewheel, Pagination]}
+                modules={[Mousewheel]}
                 speed={1000}
-                mousewheel={{ enabled: true, thresholdDelta: 100 }}
+                mousewheel={{ enabled: true, threshold: 20 }}
               >
                 <SwiperSlide>
                   <div onClick={() => swiperRef.current.swiper.slideTo(1)}>
