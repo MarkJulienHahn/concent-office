@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 import { useSwiperSlide } from "swiper/react";
-import { PortableText } from "@portabletext/react";
 
 import Div100vh from "react-div-100vh";
 import { use100vh } from "react-div-100vh";

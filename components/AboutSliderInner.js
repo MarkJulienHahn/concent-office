@@ -10,6 +10,7 @@ const AboutSliderInner = ({
   nextSlide,
   currentIndex,
   setCurrentIndex,
+  setLable,
 }) => {
   const swiper = useSwiper();
   const swiperSlide = useSwiperSlide();
@@ -24,12 +25,14 @@ const AboutSliderInner = ({
         <div
           className={"swiperPrev"}
           onClick={currentIndex == 0 ? prevSlide : () => swiper.slidePrev()}
+          onMouseEnter={() => setLable("Previous")}
         ></div>
         <div
           className={"swiperNext"}
           onClick={
             currentIndex == length - 1 ? nextSlide : () => swiper.slideNext()
           }
+          onMouseEnter={() => setLable("Next")}
         ></div>
       </div>
       <div>

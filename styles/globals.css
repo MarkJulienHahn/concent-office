@@ -107,13 +107,6 @@ p {
   opacity: 0.5;
 }
 
-.swiperPrev {
-cursor: w-resize
-}
-.swiperNext {
-  cursor: e-resize
-}
-
 .projectsMobile {
   display: none;
 }

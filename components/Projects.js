@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
 
 import { Pagination } from "swiper";
 import Div100vh from "react-div-100vh";
@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import ProjectsImage from "./ProjectsImage";
+import MouseDiv from "./MouseDiv"
 
 const Projects = ({
   projects,
@@ -19,6 +20,7 @@ const Projects = ({
   english,
 }) => {
   const swiperSlide = useSwiperSlide();
+  const [lable, setLable] = useState("")
 
   const { ref, inView, entry } = useInView();
 
@@ -37,11 +39,15 @@ const Projects = ({
     swiperSlide.isActive ? setSwiperIndex(1) : "";
   });
 
+  console.log(lable)
+
   return (
+    <>
+    <MouseDiv lable={lable}/>
     <Div100vh>
       <div
         className="projectsWrapper"
-        style={{ width: "100vw", height: "100%" }}
+        style={{ width: "100vw", height: "100%", background: "white"}}
       >
         <div ref={ref}>
           <Swiper
@@ -61,6 +67,7 @@ const Projects = ({
                       setSliderTitle={setSliderTitle}
                       swiperIndex={swiperIndex}
                       english={english}
+                      setLable={setLable}
                     />
                   </div>
                 </Div100vh>
@@ -70,6 +77,7 @@ const Projects = ({
         </div>
       </div>
     </Div100vh>
+    </>
   );
 };
 

@@ -14,6 +14,7 @@ import { Pagination, Mousewheel } from "swiper";
 import AboutImage from "./AboutImage";
 import AboutText from "./AboutText";
 import AboutSlider from "./AboutSlider";
+import MouseDiv from "./MouseDiv";
 
 const About = ({
   about,
@@ -24,6 +25,8 @@ const About = ({
 }) => {
   const swiperSlide = useSwiperSlide();
   const swiperRef = useRef(null);
+
+  const [lable, setLable] = useState("");
 
   const height = use100vh();
 
@@ -53,60 +56,65 @@ const About = ({
   });
 
   return (
-    <Div100vh>
-      <div ref={ref}>
-        <Swiper
-          ref={swiperRef}
-          slidesPerView={1}
-          pagination={pagination}
-          modules={[Pagination]}
-          speed={1000}
-          style={{ height: `${height}px` }}
-        >
-          {about.map((entry, i) => (
-            <>
-              {entry.image ? (
-                <Div100vh>
-                  <SwiperSlide key={i}>
-                    <AboutImage entry={entry} />
-                  </SwiperSlide>
-                </Div100vh>
-              ) : (
-                ""
-              )}
-              {entry.text ? (
-                <Div100vh>
-                  <SwiperSlide key={i}>
-                    <AboutText
-                      entry={entry}
-                      english={english}
-                      swiperIndex={swiperIndex}
-                      fristSlide={firstSlide}
-                    />
-                  </SwiperSlide>
-                </Div100vh>
-              ) : (
-                ""
-              )}
-              {entry.customSlider ? (
-                <Div100vh>
-                  <SwiperSlide key={i}>
-                    <AboutSlider
-                      entry={entry.customSlider}
-                      nextSlide={nextSlide}
-                      prevSlide={prevSlide}
-                      english={english}
-                    />
-                  </SwiperSlide>
-                </Div100vh>
-              ) : (
-                ""
-              )}
-            </>
-          ))}
-        </Swiper>
-      </div>
-    </Div100vh>
+    <>
+      <MouseDiv lable={lable} />
+      <Div100vh>
+        <div ref={ref} style={{background: "white", cursor: "none"}}>
+          <Swiper
+            ref={swiperRef}
+            slidesPerView={1}
+            pagination={pagination}
+            modules={[Pagination]}
+            speed={1000}
+            style={{ height: `${height}px` }}
+          >
+            {about.map((entry, i) => (
+              <>
+                {entry.image ? (
+                  <Div100vh>
+                    <SwiperSlide key={i}>
+                      <AboutImage entry={entry} setLable={setLable} />
+                    </SwiperSlide>
+                  </Div100vh>
+                ) : (
+                  ""
+                )}
+                {entry.text ? (
+                  <Div100vh>
+                    <SwiperSlide key={i}>
+                      <AboutText
+                        entry={entry}
+                        english={english}
+                        swiperIndex={swiperIndex}
+                        fristSlide={firstSlide}
+                        setLable={setLable}
+                      />
+                    </SwiperSlide>
+                  </Div100vh>
+                ) : (
+                  ""
+                )}
+                {entry.customSlider ? (
+                  <Div100vh>
+                    <SwiperSlide key={i}>
+                      <AboutSlider
+                        entry={entry.customSlider}
+                        nextSlide={nextSlide}
+                        prevSlide={prevSlide}
+                        english={english}
+                        setLable={setLable}
+                      />
+                    </SwiperSlide>
+                  </Div100vh>
+                ) : (
+                  ""
+                )}
+              </>
+            ))}
+          </Swiper>
+        </div>
+      </Div100vh>
+    </>
   );
 };
 

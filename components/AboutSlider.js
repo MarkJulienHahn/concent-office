@@ -6,7 +6,7 @@ import "swiper/css";
 
 import { EffectCreative } from "swiper";
 
-const AboutSlider = ({ entry, nextSlide, prevSlide }) => {
+const AboutSlider = ({ entry, nextSlide, prevSlide, setLable }) => {
   const swiperRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -39,6 +39,7 @@ const AboutSlider = ({ entry, nextSlide, prevSlide }) => {
                     image={image}
                     nextSlide={nextSlide}
                     prevSlide={prevSlide}
+                    setLable={setLable}
                   />
                 </div>
               </SwiperSlide>
