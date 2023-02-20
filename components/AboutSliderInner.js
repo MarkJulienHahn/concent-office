@@ -19,6 +19,8 @@ const AboutSliderInner = ({
     swiperSlide.isActive ? setCurrentIndex(i) : "";
   });
 
+  console.log(currentIndex)
+
   return (
     <>
       <div className={"swiperNav"}>

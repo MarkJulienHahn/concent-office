@@ -22,11 +22,12 @@ const About = ({
   swiperIndex,
   setSliderTitle,
   setSwiperIndex,
+  lable, setLable
 }) => {
   const swiperSlide = useSwiperSlide();
   const swiperRef = useRef(null);
 
-  const [lable, setLable] = useState("");
+
 
   const height = use100vh();
 
@@ -42,8 +43,8 @@ const About = ({
   };
 
   const firstSlide = () => swiperRef.current.swiper.slideTo(0);
-  const nextSlide = () => swiperRef.current.swiper.slideTo(5);
-  const prevSlide = () => swiperRef.current.swiper.slideTo(3);
+  const nextSlide = () => swiperRef.current.swiper.slideTo(3);
+  const prevSlide = () => swiperRef.current.swiper.slideTo(1);
 
   useEffect(() => {
     swiperSlide.isActive

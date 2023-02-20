@@ -38,6 +38,8 @@ export default function Home({
 
   const swiperRef = useRef(null);
 
+  const [lable, setLable] = useState("");
+
   const height = use100vh();
 
   const nextSlide = () => swiperRef.current.swiper.slideTo(1);
@@ -58,7 +60,9 @@ export default function Home({
 
       <div
         className={styles.navWrapper}
-        onMouseEnter={() => setActive(true)}
+        onMouseEnter={() => {
+          setActive(true), setLable("");
+        }}
         onMouseLeave={swiperIndex < 1 ? () => setActive(false) : () => {}}
       >
         <div
@@ -248,6 +252,8 @@ export default function Home({
                     setSwiperIndex={setSwiperIndex}
                     swiperIndex={swiperIndex}
                     english={english}
+                    lable={lable}
+                    setLable={setLable}
                   />
                 </SwiperSlide>
                 <SwiperSlide>
@@ -257,6 +263,8 @@ export default function Home({
                     setSwiperIndex={setSwiperIndex}
                     setSliderTitle={setSliderTitle}
                     about={about}
+                    lable={lable}
+                    setLable={setLable}
                   />
                 </SwiperSlide>
                 <SwiperSlide>

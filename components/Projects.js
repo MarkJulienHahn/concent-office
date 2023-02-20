@@ -18,9 +18,9 @@ const Projects = ({
   setSwiperIndex,
   swiperIndex,
   english,
+  lable, setLable
 }) => {
   const swiperSlide = useSwiperSlide();
-  const [lable, setLable] = useState("")
 
   const { ref, inView, entry } = useInView();
 
