@@ -24,9 +24,11 @@ const ProjectsImage = ({
       : "";
   });
 
+  console.log(project)
+
   return (
     <>
-      <div className={"swiperNav"} style={{ cursor: "none"}}>
+      <div className={"swiperNav"} style={{ cursor: "none" }}>
         <div
           className={"swiperPrev"}
           onClick={() => swiper.slidePrev()}
@@ -44,7 +46,7 @@ const ProjectsImage = ({
             src={project.image.url}
             layout="fill"
             objectFit="contain"
-            objectPosition="left top"
+            objectPosition={project.right ? "right top" : "left top"}
             loading="eager"
           />
         ) : (

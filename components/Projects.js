@@ -39,8 +39,6 @@ const Projects = ({
     swiperSlide.isActive ? setSwiperIndex(1) : "";
   });
 
-  console.log(lable)
-
   return (
     <>
     <MouseDiv lable={lable}/>
