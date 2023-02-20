@@ -119,7 +119,7 @@ export default function Home({
 
       {/* NAV BOTTOM */}
 
-      <div className={styles.navBottom}>
+      <div className={styles.navBottom} onMouseEnter={() => setLable("")}>
         <div className={styles.navBottomInner}>
           <span className={styles.copyright}>{sliderTitle}</span>
         </div>
