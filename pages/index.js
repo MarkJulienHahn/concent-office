@@ -48,12 +48,21 @@ export default function Home({
     swiperIndex >= 1 && setActive(true), swiperIndex < 1 && setActive(false);
   }, [swiperIndex]);
 
+  
+
   return (
     <div>
       <Head>
+      <meta name="keywords" content="web" />
         <title>Concept Office</title>
-        <meta name="description" content="Concept Office" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta
+          name="description"
+          content="Concept Office ist ein Studio für Innenarchitektur mit dem Schwerpunkt einer nachhaltigen und flexiblen Raumgestaltung. Das Studio arbeitet dabei mit Experten aus verschiedenen Disziplinen zusammen und analysiert bestehende Büro- und Raumstrukturen, um daraus Ressourcenschonende und Mehrfachnutzbare Räume zu entwickeln."
+        />
+        <link rel="icon" href="/favicon.ico" sizes="any"></link>
+        <link rel="icon" href="/icon.svg" type="image/svg+xml"></link>
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png"></link>
+        <link rel="manifest" href="/manifest.webmanifest"></link>
       </Head>
 
       {/* NAV */}
