@@ -11,8 +11,6 @@ const Impressum = ({ english, impressum, setSwiperIndex }) => {
     swiperSlide.isActive ? setSwiperIndex(5) : "";
   });
 
-  console.log(impressum.contentEN);
-
   return (
     <>
       <div className={"impressumText"}>

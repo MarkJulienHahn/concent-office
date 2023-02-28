@@ -12,7 +12,7 @@ import Workshop from "../components/Workshop";
 import About from "../components/About";
 import Impressum from "../components/Impressum";
 
-import { use100vh } from "react-div-100vh";
+import useWindowDimensions from "../components/useWindowDimensions";
 import Div100vh from "react-div-100vh";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -51,13 +51,14 @@ export default function Home({
 
   const [lable, setLable] = useState("");
 
-  const height = use100vh();
+  const { windowWidth } = useWindowDimensions();
 
   const nextSlide = () => swiperRef.current.swiper.slideTo(1);
 
   useEffect(() => {
     swiperIndex >= 1 && setActive(true), swiperIndex < 1 && setActive(false);
   }, [swiperIndex]);
+
 
   return (
     <div>
@@ -180,7 +181,11 @@ export default function Home({
       <div className={styles.navMobileWrapper}>
         <div
           className={styles.navMobileOuter}
-          style={swiperIndex > 0 && swiperIndex < 5 ? { width: "100%" } : { width: "170px" }}
+          style={
+            swiperIndex > 0 && swiperIndex < 5
+              ? { width: "100%" }
+              : { width: "170px" }
+          }
           onClick={
             swiperIndex < 1
               ? () => swiperRef.current.swiper.slideTo(2)
@@ -264,7 +269,11 @@ export default function Home({
                 }}
                 modules={[Mousewheel]}
                 speed={1000}
-                // mousewheel={{ enabled: true, threshold: 20 }}
+                mousewheel={
+                  windowWidth > 1000
+                    ? { enabled: true, threshold: 20 }
+                    : { enabled: false }
+                }
               >
                 <SwiperSlide>
                   <div onClick={() => swiperRef.current.swiper.slideTo(1)}>
@@ -315,7 +324,9 @@ export default function Home({
                     info={info}
                   />
                 </SwiperSlide>
-                <SwiperSlide style={{overflow: "scroll", pointerEvens: "none"}}>
+                <SwiperSlide
+                  style={{ overflow: "scroll", pointerEvens: "none" }}
+                >
                   <Impressum
                     swiperIndex={swiperIndex}
                     setSwiperIndex={setSwiperIndex}
@@ -324,7 +335,7 @@ export default function Home({
                   />
                 </SwiperSlide>
               </Swiper>
-            </div>{" "}
+            </div>
           </Div100vh>
         </motion.div>
       </AnimatePresence>
