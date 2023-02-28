@@ -264,7 +264,7 @@ export default function Home({
                 }}
                 modules={[Mousewheel]}
                 speed={1000}
-                mousewheel={{ enabled: true, threshold: 20 }}
+                // mousewheel={{ enabled: true, threshold: 20 }}
               >
                 <SwiperSlide>
                   <div onClick={() => swiperRef.current.swiper.slideTo(1)}>
@@ -315,7 +315,7 @@ export default function Home({
                     info={info}
                   />
                 </SwiperSlide>
-                <SwiperSlide>
+                <SwiperSlide style={{overflow: "scroll", pointerEvens: "none"}}>
                   <Impressum
                     swiperIndex={swiperIndex}
                     setSwiperIndex={setSwiperIndex}

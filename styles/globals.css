@@ -202,10 +202,6 @@ p {
 }
 
 .impressumText {
-  pointer-events: none;
-}
-
-.impressumText {
   padding: 140px 20px 40px;
 }
 
@@ -214,6 +210,9 @@ p {
   line-height: clamp(10pt, 1vw, 20pt);
   letter-spacing: 0;
   text-align: center;
+}
+.test {
+  overflow: scroll;
 }
 
 @media screen and (max-width: 1200px) {
@@ -319,6 +318,6 @@ p {
   }
 
   .impressumText {
-    padding: 50px 10px 40px;
+    padding: 50px 10px 50px;
   }
 }
