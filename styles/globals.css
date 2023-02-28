@@ -93,7 +93,7 @@ p {
 
 .swiperNav {
   position: absolute;
-  top: 0; 
+  top: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -201,6 +201,21 @@ p {
   display: none;
 }
 
+.impressumText {
+  pointer-events: none;
+}
+
+.impressumText {
+  padding: 140px 20px 40px;
+}
+
+.impressumText p {
+  font-size: clamp(8pt, 0.8vw, 20pt);
+  line-height: clamp(10pt, 1vw, 20pt);
+  letter-spacing: 0;
+  text-align: center;
+}
+
 @media screen and (max-width: 1200px) {
   p {
     font-size: 32px;
@@ -301,5 +316,9 @@ p {
 
   .swiperImageSlideIn {
     height: 70vh;
+  }
+
+  .impressumText {
+    padding: 50px 10px 40px;
   }
 }

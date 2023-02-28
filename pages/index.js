@@ -8,9 +8,9 @@ import styles from "../styles/Nav.module.css";
 
 import Landing from "../components/Landing";
 import Projects from "../components/Projects";
-
 import Workshop from "../components/Workshop";
 import About from "../components/About";
+import Impressum from "../components/Impressum";
 
 import { use100vh } from "react-div-100vh";
 import Div100vh from "react-div-100vh";
@@ -23,11 +23,22 @@ import { Mousewheel, Pagination } from "swiper";
 import client from "../client";
 import Info from "../components/Info";
 
+const imprActive = {
+  opacity: 1,
+  pointerEvents: "auto",
+};
+
+const imprInactive = {
+  opacity: 0,
+  pointerEvents: "none",
+};
+
 export default function Home({
   projects,
   about,
   workshop,
   info,
+  impressum,
   english,
   setEnglish,
 }) {
@@ -48,12 +59,10 @@ export default function Home({
     swiperIndex >= 1 && setActive(true), swiperIndex < 1 && setActive(false);
   }, [swiperIndex]);
 
-  
-
   return (
     <div>
       <Head>
-      <meta name="keywords" content="web" />
+        <meta name="keywords" content="web" />
         <title>Concept Office</title>
         <meta
           name="description"
@@ -132,6 +141,19 @@ export default function Home({
         <div className={styles.navBottomInner}>
           <span className={styles.copyright}>{sliderTitle}</span>
         </div>
+        <div
+          className={styles.navImpressum}
+          style={
+            swiperIndex == 4 || swiperIndex == 5 ? imprActive : imprInactive
+          }
+          onClick={
+            swiperIndex == 4
+              ? () => swiperRef.current.swiper.slideTo(5)
+              : () => swiperRef.current.swiper.slideTo(4)
+          }
+        >
+          impressum
+        </div>
         <div className={styles.navBottomInner}>
           {swiperIndex != 0 && (
             <>
@@ -158,7 +180,7 @@ export default function Home({
       <div className={styles.navMobileWrapper}>
         <div
           className={styles.navMobileOuter}
-          style={swiperIndex < 1 ? { width: "170px" } : { width: "100%" }}
+          style={swiperIndex > 0 && swiperIndex < 5 ? { width: "100%" } : { width: "170px" }}
           onClick={
             swiperIndex < 1
               ? () => swiperRef.current.swiper.slideTo(2)
@@ -178,7 +200,7 @@ export default function Home({
         </div>
       </div>
 
-      {swiperIndex > 0 ? (
+      {swiperIndex > 0 && swiperIndex < 5 ? (
         <div className={styles.navInnerMobile}>
           <span
             className={styles.navLink}
@@ -293,6 +315,14 @@ export default function Home({
                     info={info}
                   />
                 </SwiperSlide>
+                <SwiperSlide>
+                  <Impressum
+                    swiperIndex={swiperIndex}
+                    setSwiperIndex={setSwiperIndex}
+                    impressum={impressum[0]}
+                    english={english}
+                  />
+                </SwiperSlide>
               </Swiper>
             </div>{" "}
           </Div100vh>
@@ -312,6 +342,8 @@ export async function getServerSideProps() {
   *   [_type == "workshop"]{...}`);
   const info = await client.fetch(`
   *   [_type == "info"]{...}`);
+  const impressum = await client.fetch(`
+  *   [_type == "impressum"]{...}`);
 
   return {
     props: {
@@ -319,6 +351,7 @@ export async function getServerSideProps() {
       about,
       workshop,
       info,
+      impressum,
     },
   };
 }

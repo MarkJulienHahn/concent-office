@@ -90,6 +90,13 @@
   line-height: 22.5px;
 }
 
+.navImpressum {
+  font-family: "office";
+  cursor: pointer;
+  transform: translateY(-4px);
+  transition: opacity 0.5s ease
+}
+
 .active {
   border-bottom: 2px solid white;
   cursor: pointer;
@@ -186,5 +193,8 @@
   }
   .navLink:hover::before {
     transform: scaleX(1) translateY(37px);
+  }
+  .navImpressum {
+    transform: translateY(0px);
   }
 }

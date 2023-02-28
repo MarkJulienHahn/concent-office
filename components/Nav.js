@@ -131,6 +131,7 @@ const Nav = ({ english, setEnglish, sliderTitle, functionAbout }) => {
               )}
             </span>
           </div>
+          <div>Impressum</div>
           <div className={styles.navBottomInner}>
             <span
               onClick={() => setEnglish(!english)}

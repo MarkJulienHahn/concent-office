@@ -24,8 +24,6 @@ const ProjectsImage = ({
       : "";
   });
 
-  console.log(project)
-
   return (
     <>
       <div className={"swiperNav"} style={{ cursor: "none" }}>

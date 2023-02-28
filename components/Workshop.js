@@ -1,19 +1,14 @@
 import { useEffect, useRef } from "react";
 
-import { Swiper, SwiperSlide } from "swiper/react";
 import { useSwiperSlide } from "swiper/react";
 import { PortableText } from "@portabletext/react";
 import { useInView } from "react-intersection-observer";
 
-import Div100vh from "react-div-100vh";
 import { use100vh } from "react-div-100vh";
-
-import { Pagination } from "swiper";
 
 import "swiper/css";
 import "swiper/css/pagination";
 
-import AboutText from "./AboutText";
 import WorkshopMobile from "./WorkshopMobile";
 
 const Workshop = ({
