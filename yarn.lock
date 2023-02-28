@@ -556,13 +556,6 @@
   dependencies:
     "esutils" "^2.0.2"
 
-"dom7@^4.0.4":
-  "integrity" "sha512-DSSgBzQ4rJWQp1u6o+3FVwMNnT5bzQbMb+o31TjYYeRi05uAcpF8koxdfzeoe5ElzPmua7W7N28YJhF7iEKqIw=="
-  "resolved" "https://registry.npmjs.org/dom7/-/dom7-4.0.4.tgz"
-  "version" "4.0.4"
-  dependencies:
-    "ssr-window" "^4.0.0"
-
 "emoji-regex@^9.2.2":
   "integrity" "sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg=="
   "resolved" "https://registry.npmjs.org/emoji-regex/-/emoji-regex-9.2.2.tgz"
@@ -1931,7 +1924,7 @@
   "resolved" "https://registry.npmjs.org/speedometer/-/speedometer-1.0.0.tgz"
   "version" "1.0.0"
 
-"ssr-window@^4.0.0", "ssr-window@^4.0.2":
+"ssr-window@^4.0.2":
   "integrity" "sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ=="
   "resolved" "https://registry.npmjs.org/ssr-window/-/ssr-window-4.0.2.tgz"
   "version" "4.0.2"
@@ -2011,12 +2004,11 @@
   "resolved" "https://registry.npmjs.org/supports-preserve-symlinks-flag/-/supports-preserve-symlinks-flag-1.0.0.tgz"
   "version" "1.0.0"
 
-"swiper@^8.4.5":
-  "integrity" "sha512-zveyEFBBv4q1sVkbJHnuH4xCtarKieavJ4SxP0QEHvdpPLJRuD7j/Xg38IVVLbp7Db6qrPsLUePvxohYx39Agw=="
-  "resolved" "https://registry.npmjs.org/swiper/-/swiper-8.4.5.tgz"
-  "version" "8.4.5"
+"swiper@^9.0.5":
+  "integrity" "sha512-UiLQ5fvn8L3ZZpaPa+9oiwKwhVGQt5TVc0UuXxFKHyTQe8g2E3vbPMiMfIGb6NhNGj5ntsSDyyNgg4qVmWlJkQ=="
+  "resolved" "https://registry.npmjs.org/swiper/-/swiper-9.0.5.tgz"
+  "version" "9.0.5"
   dependencies:
-    "dom7" "^4.0.4"
     "ssr-window" "^4.0.2"
 
 "synckit@^0.8.4":

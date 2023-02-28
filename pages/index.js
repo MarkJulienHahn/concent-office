@@ -46,6 +46,7 @@ export default function Home({
   const [active, setActive] = useState(false);
   const [sliderTitle, setSliderTitle] = useState("");
   const [swiperIndex, setSwiperIndex] = useState(0);
+  const [touchMove, setTouchMove] = useState(true);
 
   const swiperRef = useRef(null);
 
@@ -59,6 +60,11 @@ export default function Home({
     swiperIndex >= 1 && setActive(true), swiperIndex < 1 && setActive(false);
   }, [swiperIndex]);
 
+  useEffect(() => {
+    windowWidth >= 1000 || (swiperIndex < 5 && windowWidth <= 1000)
+      ? swiperRef.current.swiper.enable()
+      : swiperRef.current.swiper.disable();
+  }, [swiperIndex]);
 
   return (
     <div>
@@ -149,8 +155,13 @@ export default function Home({
           }
           onClick={
             swiperIndex == 4
-              ? () => swiperRef.current.swiper.slideTo(5)
-              : () => swiperRef.current.swiper.slideTo(4)
+              ? () => {
+                  swiperRef.current.swiper.slideTo(5);
+                }
+              : async () => {
+                  await swiperRef.current.swiper.enable();
+                  await swiperRef.current.swiper.slideTo(4);
+                }
           }
         >
           impressum
@@ -194,12 +205,28 @@ export default function Home({
         >
           <span
             className={styles.navMobileConcept}
-            onClick={() => swiperRef.current.swiper.slideTo(0)}
+            onClick={
+              swiperIndex != 0
+                ? async () => {
+                    await swiperRef.current.swiper.enable();
+                    await swiperRef.current.swiper.slideTo(0);
+                  }
+                : () => swiperRef.current.swiper.slideTo(2)
+            }
           >
             concept
           </span>
 
-          <span onClick={() => swiperRef.current.swiper.slideTo(0)}>
+          <span
+            onClick={
+              swiperIndex != 0
+                ? async () => {
+                    await swiperRef.current.swiper.enable();
+                    await swiperRef.current.swiper.slideTo(0);
+                  }
+                : () => swiperRef.current.swiper.slideTo(2)
+            }
+          >
             office
           </span>
         </div>
@@ -324,9 +351,7 @@ export default function Home({
                     info={info}
                   />
                 </SwiperSlide>
-                <SwiperSlide
-                  style={{ overflow: "scroll", pointerEvens: "none" }}
-                >
+                <SwiperSlide style={{ overflow: "scroll" }}>
                   <Impressum
                     swiperIndex={swiperIndex}
                     setSwiperIndex={setSwiperIndex}
