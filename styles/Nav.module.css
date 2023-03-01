@@ -62,7 +62,8 @@
   flex-direction: column;
 }
 
-.navInner span, .navOuter span {
+.navInner span,
+.navOuter span {
   cursor: pointer;
 }
 
@@ -82,7 +83,7 @@
 }
 
 .navInnerMobile {
-  display: none
+  display: none;
 }
 
 .navConcept {
@@ -94,7 +95,10 @@
   font-family: "office";
   cursor: pointer;
   transform: translateY(-4px);
-  transition: opacity 0.5s ease
+  transition: opacity 0.5s ease;
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 60px);
 }
 
 .active {
@@ -112,8 +116,21 @@
 }
 
 @keyframes fadeIn {
-  0% {opacity: 0}
-  100% {opacity: 1}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    bottom: -200px;
+  }
+  100% {
+    bottom: 0;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -150,7 +167,6 @@
     font-size: 15px;
     padding: 0 12px;
     justify-content: space-between;
-
   }
   .navBottomInner {
     width: unset;
@@ -161,18 +177,23 @@
     position: fixed;
     top: unset;
     bottom: 0;
-    opacity: 0;
     padding-top: 5px;
     padding-bottom: 40px;
     width: 100%;
     font-size: 30px;
     line-height: 30px;
-    /* background: white; */
-    animation: fadeIn 1s ease;
     animation-delay: 1s;
     animation-fill-mode: forwards;
     z-index: 50;
+    transition: all 1s ease;
+  }
 
+  .navInnerMobileVisible {
+    transform: translateY(0px);
+  }
+
+  .navInnerMobileHidden {
+    transform: translateY(300px);
   }
 
   .navMobileConcept {
@@ -196,5 +217,10 @@
   }
   .navImpressum {
     transform: translateY(0px);
+    font-family: "office";
+    cursor: pointer;
+    position: relative;
+    top: unset;
+    left: unset;
   }
 }

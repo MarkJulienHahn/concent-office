@@ -92,15 +92,16 @@ export default function Home({
       >
         <div
           className={styles.navOuter}
-          style={{ width: active ? "50vw" : "140px" }}
+          style={{ width: active ? "calc(50vw + 60px)" : "140px" }}
         >
           <span
+          style={{paddingLeft: "0px"}}
             className={styles.navConcept}
             onClick={() => swiperRef.current.swiper.slideTo(0)}
           >
             concept
           </span>
-          <span onClick={() => swiperRef.current.swiper.slideTo(0)}>
+          <span onClick={() => swiperRef.current.swiper.slideTo(0)} style={{paddingRight: "10px"}}>
             office
           </span>
         </div>
@@ -232,8 +233,8 @@ export default function Home({
         </div>
       </div>
 
-      {swiperIndex > 0 && swiperIndex < 5 ? (
-        <div className={styles.navInnerMobile}>
+
+        <div className={swiperIndex > 0 && swiperIndex < 5 ? `${styles.navInnerMobile} ${styles.navInnerMobileVisible}` :  `${styles.navInnerMobile} ${styles.navInnerMobileHidden}`} >
           <span
             className={styles.navLink}
             style={{ width: "50px" }}
@@ -263,9 +264,7 @@ export default function Home({
             info
           </span>
         </div>
-      ) : (
-        ""
-      )}
+
 
       <AnimatePresence>
         <motion.div

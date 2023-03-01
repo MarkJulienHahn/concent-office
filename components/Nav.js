@@ -31,7 +31,7 @@ const Nav = ({ english, setEnglish, sliderTitle, functionAbout }) => {
       >
         <div
           className={styles.navOuter}
-          style={{ width: active ? "50vw" : "140px" }}
+          style={{ width: active ? "calc(50vw + 100px)" : "10px" }}
         >
           <Link href="/">
             <span className={styles.navConcept}>concept</span>
