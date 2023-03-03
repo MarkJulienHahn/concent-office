@@ -87,7 +87,7 @@ const About = ({
                         entry={entry}
                         english={english}
                         swiperIndex={swiperIndex}
-                        fristSlide={firstSlide}
+                        firstSlide={firstSlide}
                         setLable={setLable}
                       />
                     </SwiperSlide>

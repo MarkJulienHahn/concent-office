@@ -46,7 +46,6 @@ export default function Home({
   const [active, setActive] = useState(false);
   const [sliderTitle, setSliderTitle] = useState("");
   const [swiperIndex, setSwiperIndex] = useState(0);
-  const [touchMove, setTouchMove] = useState(true);
 
   const swiperRef = useRef(null);
 
@@ -95,13 +94,16 @@ export default function Home({
           style={{ width: active ? "calc(50vw + 60px)" : "140px" }}
         >
           <span
-          style={{paddingLeft: "0px"}}
+            style={{ paddingLeft: "0px" }}
             className={styles.navConcept}
             onClick={() => swiperRef.current.swiper.slideTo(0)}
           >
             concept
           </span>
-          <span onClick={() => swiperRef.current.swiper.slideTo(0)} style={{paddingRight: "10px"}}>
+          <span
+            onClick={() => swiperRef.current.swiper.slideTo(0)}
+            style={{ paddingRight: "10px" }}
+          >
             office
           </span>
         </div>
@@ -165,7 +167,7 @@ export default function Home({
                 }
           }
         >
-          impressum
+          <span>impressum</span>
         </div>
         <div className={styles.navBottomInner}>
           {swiperIndex != 0 && (
@@ -233,38 +235,42 @@ export default function Home({
         </div>
       </div>
 
-
-        <div className={swiperIndex > 0 && swiperIndex < 5 ? `${styles.navInnerMobile} ${styles.navInnerMobileVisible}` :  `${styles.navInnerMobile} ${styles.navInnerMobileHidden}`} >
-          <span
-            className={styles.navLink}
-            style={{ width: "50px" }}
-            onClick={() => swiperRef.current.swiper.slideTo(1)}
-          >
-            work
-          </span>
-          <span
-            className={styles.navLink}
-            style={{ width: "60px" }}
-            onClick={() => swiperRef.current.swiper.slideTo(2)}
-          >
-            about
-          </span>
-          <span
-            className={styles.navLink}
-            style={{ width: "95px" }}
-            onClick={() => swiperRef.current.swiper.slideTo(3)}
-          >
-            workshop
-          </span>
-          <span
-            className={styles.navLink}
-            style={{ width: "38px" }}
-            onClick={() => swiperRef.current.swiper.slideTo(4)}
-          >
-            info
-          </span>
-        </div>
-
+      <div
+        className={
+          swiperIndex > 0 && swiperIndex < 5
+            ? `${styles.navInnerMobile} ${styles.navInnerMobileVisible}`
+            : `${styles.navInnerMobile} ${styles.navInnerMobileHidden}`
+        }
+      >
+        <span
+          className={styles.navLink}
+          style={{ width: "50px" }}
+          onClick={() => swiperRef.current.swiper.slideTo(1)}
+        >
+          <span style={{ pointerEvents: "auto" }}>work</span>
+        </span>
+        <span
+          className={styles.navLink}
+          style={{ width: "60px" }}
+          onClick={() => swiperRef.current.swiper.slideTo(2)}
+        >
+          <span style={{ pointerEvents: "auto" }}>about</span>
+        </span>
+        <span
+          className={styles.navLink}
+          style={{ width: "95px" }}
+          onClick={() => swiperRef.current.swiper.slideTo(3)}
+        >
+          <span style={{ pointerEvents: "auto" }}>workshop</span>
+        </span>
+        <span
+          className={styles.navLink}
+          style={{ width: "38px" }}
+          onClick={() => swiperRef.current.swiper.slideTo(4)}
+        >
+          <span style={{ pointerEvents: "auto" }}>info</span>
+        </span>
+      </div>
 
       <AnimatePresence>
         <motion.div

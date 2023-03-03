@@ -19,6 +19,8 @@ const AboutSliderInner = ({
     swiperSlide.isActive ? setCurrentIndex(i) : "";
   });
 
+  console.log(image)
+
   return (
     <>
       <div className={"swiperNav"}>
@@ -36,7 +38,7 @@ const AboutSliderInner = ({
         ></div>
       </div>
       <div>
-        {image.dimensions.aspectRation <= 1 ? (
+        {image.dimensions.aspectRatio >= 1 ? (
           <Image
             src={image.url}
             layout="responsive"
@@ -46,14 +48,17 @@ const AboutSliderInner = ({
             loading="eager"
           />
         ) : (
-          <Image
-            src={image.url}
-            layout="responsive"
-            objectFit="contain"
-            height="100"
-            width="100"
-            loading="eager"
-          />
+          <div className={"portraitImage"}>
+            {" "}
+            <Image
+              src={image.url}
+              layout="responsive"
+              objectFit="contain"
+              height="100"
+              width="100"
+              loading="eager"
+            />
+          </div>
         )}
       </div>
     </>

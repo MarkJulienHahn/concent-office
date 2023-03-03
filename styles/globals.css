@@ -248,10 +248,18 @@ p {
   }
 
   .swiperImageSlideIn img {
-    transform: scale(60%);
+    transform: scale(100%);
+    padding: 0 40px;
   }
+
+  .portraitImage {
+    transform: scale(100%);
+    padding: 0 50px;
+  }
+  
+
   .swiperSingleAbout {
-    height: 80%;
+    height: calc(100vh - 150px);
   }
   .swiperSingleAbout p {
     padding: 0 10px;
@@ -290,7 +298,7 @@ p {
     padding: 10px;
     text-align: center;
     display: flex;
-    height: 80%;
+    height: calc(100vh - 150px);
     align-items: center;
   }
   #workshopPagination {
@@ -310,14 +318,19 @@ p {
     margin-left: 5px;
   }
   .swiperImageAbout {
-    height: 70%;
+    height: 85%;
+    padding: 0 30px;
   }
 
   .swiperImageSlideIn {
-    height: 70vh;
+    height: 85%;
   }
 
   .impressumText {
     padding: 50px 10px 150px;
+  }
+
+  .infoWrapper {
+    height: calc(100vh - 150px);
   }
 }

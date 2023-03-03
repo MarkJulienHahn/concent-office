@@ -8,6 +8,7 @@ const ProjectsImage = ({
   swiperIndex,
   english,
   setLable,
+  reset
 }) => {
   const swiper = useSwiper();
   const swiperSlide = useSwiperSlide();
@@ -23,6 +24,10 @@ const ProjectsImage = ({
         : ""
       : "";
   });
+
+  // useEffect(() => {
+  //   reset && swiper.slideTo(0,0,false)
+  // })
 
   return (
     <>
