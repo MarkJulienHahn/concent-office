@@ -14,6 +14,7 @@ import { Pagination, Mousewheel } from "swiper";
 import AboutImage from "./AboutImage";
 import AboutText from "./AboutText";
 import AboutSlider from "./AboutSlider";
+import AboutVideo from "./AboutVideo";
 import MouseDiv from "./MouseDiv";
 
 const About = ({
@@ -22,12 +23,11 @@ const About = ({
   swiperIndex,
   setSliderTitle,
   setSwiperIndex,
-  lable, setLable
+  lable,
+  setLable,
 }) => {
   const swiperSlide = useSwiperSlide();
   const swiperRef = useRef(null);
-
-
 
   const height = use100vh();
 
@@ -60,7 +60,7 @@ const About = ({
     <>
       <MouseDiv lable={lable} />
       <Div100vh>
-        <div ref={ref} style={{background: "white", cursor: "none"}}>
+        <div ref={ref} style={{ background: "white", cursor: "none" }}>
           <Swiper
             ref={swiperRef}
             slidesPerView={1}
@@ -77,6 +77,19 @@ const About = ({
                       <AboutImage entry={entry} setLable={setLable} />
                     </SwiperSlide>
                   </Div100vh>
+                ) : (
+                  ""
+                )}
+                {entry.video.videoDesktop?.url ||
+                entry.video.videoMobile?.url ? (
+                  <>
+                    <Div100vh>
+                      <SwiperSlide key={i}>
+                        <AboutVideo entry={entry.video} setLable={setLable}/>
+
+                      </SwiperSlide>
+                    </Div100vh>
+                  </>
                 ) : (
                   ""
                 )}

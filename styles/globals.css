@@ -143,6 +143,24 @@ p {
   align-items: center;
 }
 
+.swiperVideoDesktop,
+.swiperVideoMobile {
+  display: flex;
+  justify-content: center;
+}
+
+.swiperVideoDesktop video {
+  width: 70%;
+}
+
+.swiperVideoMobile video {
+  width: 100%;
+}
+
+.swiperVideoMobile {
+  display: none;
+}
+
 .swiperImageSlideIn img {
   transform: scale(60%);
 }
@@ -256,7 +274,6 @@ p {
     transform: scale(100%);
     padding: 0 50px;
   }
-  
 
   .swiperSingleAbout {
     height: calc(100vh - 150px);
@@ -332,5 +349,12 @@ p {
 
   .infoWrapper {
     height: calc(100vh - 150px);
+  }
+
+  .swiperVideoMobile {
+    display: block;
+  }
+  .swiperVideoDesktop {
+    display: none;
   }
 }

@@ -375,10 +375,10 @@ export default function Home({
 
 export async function getServerSideProps() {
   const projects = await client.fetch(`
-  *   [_type == "projects"]|order(orderRank){"image": image.asset->{url, "dimensions": metadata.dimensions}, alt, ...}`);
+  *   [_type == "projects"]|order(orderRank){"image": image.asset->{url, "dimensions": metadata.dimensions}, alt, "video": {"videoDesktop": video.videoDesktop.asset->{url}, "videoMobile": video.videoMobile.asset->{url}}, ...}`);
 
   const about = await client.fetch(`
-  *[_type == "about"]|order(orderRank){"image": image.asset->{url, "dimensions": metadata.dimensions}, description, text, textEn, "customSlider": customSlider[].asset->{url, "dimensions": metadata.dimensions}}`);
+  *[_type == "about"]|order(orderRank){"image": image.asset->{url, "dimensions": metadata.dimensions}, description, text, textEn, "customSlider": customSlider[].asset->{url, "dimensions": metadata.dimensions}, "video": {"videoDesktop": video.videoDesktop.asset->{url}, "videoMobile": video.videoMobile.asset->{url}}}`);
   const workshop = await client.fetch(`
   *   [_type == "workshop"]{...}`);
   const info = await client.fetch(`

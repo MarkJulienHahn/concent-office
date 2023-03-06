@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 
 import ProjectsImage from "./ProjectsImage";
+import ProjectsVideo from "./ProjectsVideo";
 import MouseDiv from "./MouseDiv";
 
 const Projects = ({
@@ -23,7 +24,7 @@ const Projects = ({
 }) => {
   const swiperSlide = useSwiperSlide();
   const swiperRef = useRef(null);
-  const [reset, setReset] = useState(false)
+  const [reset, setReset] = useState(false);
 
   const { ref, inView, entry } = useInView();
 
@@ -46,11 +47,13 @@ const Projects = ({
     !swiperSlide.isActive ? setReset(true) : setReset(false);
   });
 
-    useEffect(() => {
+  useEffect(() => {
     swiperSlide.isActive
       ? setSliderTitle(<>©{new Date().getFullYear()}</>)
       : "";
   }, [inView]);
+
+  // console.log(projects);
 
   return (
     <>
@@ -74,14 +77,25 @@ const Projects = ({
                 <SwiperSlide key={i}>
                   <Div100vh>
                     <div className="swiperSingle">
-                      <ProjectsImage
-                        project={project}
-                        setSliderTitle={setSliderTitle}
-                        swiperIndex={swiperIndex}
-                        english={english}
-                        setLable={setLable}
-                        reset={reset}
-                      />
+                      {project.image ? (
+                        <ProjectsImage
+                          project={project}
+                          setSliderTitle={setSliderTitle}
+                          swiperIndex={swiperIndex}
+                          english={english}
+                          setLable={setLable}
+                          reset={reset}
+                        />
+                      ) : (
+                        <ProjectsVideo
+                          project={project}
+                          setSliderTitle={setSliderTitle}
+                          swiperIndex={swiperIndex}
+                          english={english}
+                          setLable={setLable}
+                          reset={reset}
+                        />
+                      )}
                     </div>
                   </Div100vh>
                 </SwiperSlide>

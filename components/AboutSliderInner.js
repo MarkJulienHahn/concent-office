@@ -17,9 +17,7 @@ const AboutSliderInner = ({
 
   useEffect(() => {
     swiperSlide.isActive ? setCurrentIndex(i) : "";
-  });
-
-  console.log(image)
+});
 
   return (
     <>
