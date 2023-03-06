@@ -39,7 +39,7 @@ const WorkshopMobile = ({
 
   useEffect(() => {
     swiperSlide.isActive
-      ? (setSliderTitle(<>©{new Date().getFullYear()}</>))
+      ? setSliderTitle(<>©{new Date().getFullYear()}</>)
       : "";
   }, [inView]);
 
@@ -49,37 +49,67 @@ const WorkshopMobile = ({
 
   return (
     <Div100vh>
-    <div
-      className="workshopMobile"
-      style={{ width: "100vw", height: "100%" }}
-    >
-      <Swiper
-        ref={swiperRef}
-        slidesPerView={1}
-        pagination={pagination}
-        modules={[Pagination]}
-        speed={1000}
-        style={{height: `${height}px`}}
+      <div
+        className="workshopMobile"
+        style={{ width: "100vw", height: "100%" }}
       >
-        {english
-          ? workshop[0].textMobileEn.map((entry, i) => (
-              <SwiperSlide key={i}>
-                <div className={"workshopTextWrapper"}>
-                  <p>{entry}</p>
-                </div>
-              </SwiperSlide>
-            ))
-          : workshop[0].textMobile.map((entry, i) => (
-              <SwiperSlide key={i}>
-                <div className={"workshopTextWrapper"}>
-                  <p>{entry}</p>
-                </div>
-              </SwiperSlide>
-            ))}
-      </Swiper>
-    </div>
-  </Div100vh>
-  )
-}
+        <Swiper
+          ref={swiperRef}
+          slidesPerView={1}
+          pagination={pagination}
+          modules={[Pagination]}
+          speed={1000}
+          style={{ height: `${height}px` }}
+        >
+          {english
+            ? workshop[0].textMobileEn.map((entry, i, workshop) =>
+                i + 1 === 2 ? (
+                  <SwiperSlide key={i}>
+                    <div className={"workshopTextWrapper"}>
+                      <p>
+                        {entry}{" "}
+                        <a href="mailto:contact@conceptoffice.com">
+                          <p style={{ textDecoration: "underline" }}>
+                            Book Workshop
+                          </p>
+                        </a>
+                      </p>
+                    </div>
+                  </SwiperSlide>
+                ) : (
+                  <SwiperSlide key={i}>
+                    <div className={"workshopTextWrapper"}>
+                      <p>{entry}</p>
+                    </div>
+                  </SwiperSlide>
+                )
+              )
+            : workshop[0].textMobile.map((entry, i, workshop) =>
+                i + 1 === 2 ? (
+                  <SwiperSlide key={i}>
+                    <div className={"workshopTextWrapper"}>
+                      <p>
+                        {entry}{" "}
+                        <a href="mailto:contact@conceptoffice.com">
+                          <p style={{ textDecoration: "underline" }}>
+                            Workshop buchen
+                          </p>
+                        </a>
+                      </p>
+                    </div>
+                  </SwiperSlide>
+                ) : (
+                  <SwiperSlide key={i}>
+                    <div className={"workshopTextWrapper"}>
+                      <p>{entry}</p>
+                    </div>
+                  </SwiperSlide>
+                )
+              )}
+        </Swiper>
+      </div>
+    </Div100vh>
+  );
+};
 
-export default WorkshopMobile
+export default WorkshopMobile;

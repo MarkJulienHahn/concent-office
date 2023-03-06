@@ -57,7 +57,7 @@ const Workshop = ({
           <PortableText
             value={english ? workshop[0].textEn : workshop[0].text}
           />
-          <a href=""><p>{english ? "Book Workshop" : "Workshop buchen"}</p></a>
+          <a href="mailto:contact@conceptoffice.com"><p>{english ? "Book Workshop" : "Workshop buchen"}</p></a>
         </div>
       </div>
 
