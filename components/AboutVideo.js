@@ -25,7 +25,7 @@ const AboutVideo = ({ entry, setLable }) => {
           <video
             loop
             autoPlay={true}
-            playsInLine
+            playsInline
             webkit-playsinline={true}
             muted
           >
