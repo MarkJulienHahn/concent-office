@@ -350,12 +350,4 @@ p {
   .infoWrapper {
     height: calc(100vh - 150px);
   }
-
-  .swiperVideoDesktop {
-    display: none
-  }
-
-  .swiperVideoMobile {
-    display: block;
-  }
 }
