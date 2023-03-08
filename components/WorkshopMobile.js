@@ -88,14 +88,12 @@ const WorkshopMobile = ({
                 i + 1 === 2 ? (
                   <SwiperSlide key={i}>
                     <div className={"workshopTextWrapper"}>
-                      <p>
                         {entry}{" "}
                         <a href="mailto:contact@conceptoffice.com">
                           <p style={{ textDecoration: "underline" }}>
                             Workshop buchen
                           </p>
                         </a>
-                      </p>
                     </div>
                   </SwiperSlide>
                 ) : (
