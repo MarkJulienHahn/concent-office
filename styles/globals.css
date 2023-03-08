@@ -351,10 +351,10 @@ p {
     height: calc(100vh - 150px);
   }
 
-  .swiperVideoMobile {
-    display: block;
+  .swiperVideoDesktop video {
+    width: 100%
   }
-  .swiperVideoDesktop {
+  /* .swiperVideoDesktop {
     display: none;
-  }
+  } */
 }
