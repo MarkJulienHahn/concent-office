@@ -38,7 +38,7 @@ const AboutVideo = ({ entry, setLable }) => {
               autoPlay={true}
               muted={true}
               loop
-              src={entry.videoDesktop.url}
+              src={entry.videoMobile.url}
               type='video/mp4' 
             />
           </video>

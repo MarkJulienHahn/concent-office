@@ -350,4 +350,8 @@ p {
   .infoWrapper {
     height: calc(100vh - 150px);
   }
+
+  .swiperVideoDesktop video {
+    width: 100%;
+  }
 }
