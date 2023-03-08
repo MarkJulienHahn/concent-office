@@ -145,6 +145,10 @@ p {
 
 .swiperVideoDesktop,
 .swiperVideoMobile {
+  justify-content: center;
+}
+
+.swiperVideoDesktop {
   display: flex;
   justify-content: center;
 }
@@ -352,7 +356,7 @@ p {
   }
 
   .swiperVideoMobile {
-    display: block;
+    display: flex;
   }
   .swiperVideoDesktop {
     display: none;
