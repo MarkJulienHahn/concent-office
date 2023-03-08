@@ -18,14 +18,14 @@ const AboutVideo = ({ entry, setLable }) => {
         ></div>
       </div>
       <div className="swiperImageAbout">
-        <div className="swiperVideoDesktop">
-          <video loop autoPlay muted>
-            <source className="videoDesktop" src={entry.videoDesktop.url} />
+        <div className="swiperVideoMobile">
+          <video loop autoPlay playsinline muted>
+            <source src={entry.videoMobile.url} />
           </video>
         </div>
-        <div className="swiperVideoMobile">
-          <video loop autoPlay muted>
-            <source className="videoMobile" src={entry.videoMobile.url} />
+        <div className="swiperVideoDesktop">
+          <video loop autoPlay playsinline muted>
+            <source src={entry.videoDesktop.url} />
           </video>
         </div>
       </div>
