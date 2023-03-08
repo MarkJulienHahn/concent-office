@@ -151,6 +151,7 @@ p {
 
 .swiperVideoDesktop video {
   width: 70%;
+  max-height: 100vh;
 }
 
 .swiperVideoMobile video {
