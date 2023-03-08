@@ -22,7 +22,7 @@ const AboutVideo = ({ entry, setLable }) => {
       </div>
       <div className="swiperImageAbout">
         <div className="swiperVideoDesktop">
-          <video loop autoPlay playsInLine muted>
+          <video loop autoPlay={true} playsInLine webkit-playsinline={true} muted>
             {/* {windowWidth < 601 ? (
               <source src={entry.videoMobile.url} />
             ) : (
