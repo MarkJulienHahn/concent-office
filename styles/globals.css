@@ -352,7 +352,11 @@ p {
     height: calc(100vh - 150px);
   }
 
-  .swiperVideoDesktop video {
-    width: 100%;
+  .swiperVideoDesktop {
+    display: none;
+  }
+
+  .swiperVideoMobile {
+    display: flex;
   }
 }
